@@ -6,7 +6,8 @@
     <title>Yaakove's Lader</title>
     <!-- Style -->
     <link rel="stylesheet" href="styles/style.css" />
-    <link rel="global" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/responsive_breakpoints.css" />
+    <link rel="stylesheet" href="styles/global.css" />
     <!-- Icons -->
     <link
       rel="stylesheet"
@@ -38,22 +39,33 @@
     <main>
       <section class="hero-section">
         <div class="container-hero-image">
-          <img src="assets/Hero image.png" alt="Hero Image" />
+          <div class="hero-image-text">
+            <span id="quote-font">
+              "כי כל רעיון טוב מתחיל בענן שנראה כמו חללית"
+            </span>
+            <span>יעקב עוזרי הי"ד</span>
+          </div>
         </div>
         <article class="container-hero-txt">
           <div class="text-container">
-            <h1>החלום של יעקב מתגשם – יצירה, זיכרון ועתיד בגליל.</h1>
+            <h1>
+              החלום של יעקב מתגשם
+              <span>–</span>
+              <span>יצירה, זיכרון ועתיד בגליל.</span>
+            </h1>
             <div class="paragraph-hero">
               <p>
                 בכפר שמאי מקום בימים אלו מרכז אומנות ותרפיה לזכרו של יעקב עוזרי
               </p>
               <p>זהו מרחב של נתינה, חיבור בין אנשים והשראה דרך יצירה.</p>
             </div>
-            <span>הצטרפו אלינו בהקמת המרכז</span>
+            <div class="cta-btn">
+              <span id="cta-btn-span">הצטרפו אלינו בהקמת המרכז</span>
+              <button class="btn-l">לתרומה עכשיו</button>
+            </div>
           </div>
         </article>
         <div class="cta">
-          <img src="assets/CTA-Hero.png" alt="Kefar shamai" />
           <button class="btn-xl">לתרומה עכשיו</button>
         </div>
       </section>
@@ -85,60 +97,79 @@
               <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
             </div>
           </div>
-          <!-- Add more cards -->
-        </div>
-
-        <div class="dot-container" id="dotContainer-1"></div>
-      </section>
-      <section class="about-center-section-expandad">
-        <article class="container-center-expendad-txt">
-          <h2 id="header-about">רואים רחוק רואים שקוף</h2>
-          <p>
-            עיצוב המרכז שואב השראה ממשקפת שיצר יעקב בלימודיו - סמל לראייה רחוקה
-            לאופק, וחזון.
-          </p>
-          <p>
-            המבנה יכלול חללים עגולים, קירות שקופים, אזורי יצירה בטבע, אמפי
-            אינטימי, גינת אמנים וחללים מודולרים - המעוצבים ברוח של פתיחות,
-            נגישות וקהילתיות.מרכז שמציב את הפריפריה בלב העשייה.
-          </p>
-          <span>לצפייה בהדמיות 360° של המרכז</span>
-        </article>
-        <div class="googels-image">
-          <img src="assets/gogels.png" alt="googels" />
-        </div>
-        <div class="pictures-of-center__container" id="carousel-2">
-          <div class="pictures-of-center__card">
-            <div class="pictures-of-center__image">
-              <img src="assets/view-from-top.png" alt="Picture 1" />
-            </div>
-          </div>
-          <div class="pictures-of-center__card">
-            <div class="pictures-of-center__image">
+          <div class="pictures-of-something__card">
+            <div class="pictures-of-something__image">
               <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
             </div>
           </div>
           <!-- Add more cards -->
         </div>
 
-        <div class="dot-container" id="dotContainer-2"></div>
-        <!-- After Image -->
-        <article class="container-center-expendad-txt-2">
-          <p>
-            הקמת המרכז בכפר שמאי אינה מקרית - זהו נוף ילדתו של יעקב בו הוא התעצב
-            צמח חלם ויצר.
-          </p>
-          <p>
-            מיקום המרכז אינו רק בחירה גאוגרפית אלא גם המשך ישיר לחזון: להפוך את
-            הבית, את השורשים למקור יצירה והשראה עבור כולם.
-          </p>
-          <span>יעקב חי דרך יצירה - בואו לצעוד איתנו בדרכו</span>
-        </article>
-        <button class="btn">לתרומה עכשיו</button>
+        <div class="dot-container" id="dotContainer-1"></div>
+      </section>
+      <section class="about-center-section-expandad">
+        <div class="about-center-section-expandad container">
+          <div class="about-center-text-padding">
+            <h2 id="header-about">רואים רחוק רואים שקוף</h2>
+            <span>
+              עיצוב המרכז שואב השראה ממשקפת שיצר יעקב בלימודיו - סמל לראייה
+              רחוקה לאופק, וחזון.
+            </span>
+          </div>
+          <div class="top-section">
+            <article class="container-center-expendad-txt">
+              <p>
+                המבנה יכלול חללים עגולים, קירות שקופים, אזורי יצירה בטבע, אמפי
+                אינטימי, גינת אמנים וחללים מודולרים - המעוצבים ברוח של פתיחות,
+                נגישות וקהילתיות.מרכז שמציב את הפריפריה בלב העשייה.
+              </p>
+              <span class="center-img-link">לצפייה בהדמיות 360° של המרכז</span>
+            </article>
+            <div class="googels-image">
+              <img src="assets/gogels.png" alt="googels" />
+            </div>
+          </div>
+          <div class="bottom-section">
+            <div class="carousel_2_wrapper">
+              <div class="pictures-of-center__container" id="carousel-2">
+                <div class="pictures-of-center__card">
+                  <div class="pictures-of-center__image">
+                    <img src="assets/view-from-top.png" alt="Picture 1" />
+                  </div>
+                </div>
+                <div class="pictures-of-center__card">
+                  <div class="pictures-of-center__image">
+                    <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
+                  </div>
+                </div>
+                <!-- Add more cards -->
+              </div>
+              <div class="dot-container" id="dotContainer-2"></div>
+            </div>
+            <!-- After Image -->
+            <article class="container-center-expendad-txt-2">
+              <p>
+                הקמת המרכז בכפר שמאי אינה מקרית - זהו נוף ילדתו של יעקב בו הוא
+                התעצב צמח חלם ויצר.
+              </p>
+              <p>
+                מיקום המרכז אינו רק בחירה גאוגרפית אלא גם המשך ישיר לחזון: להפוך
+                את הבית, את השורשים למקור יצירה והשראה עבור כולם.
+              </p>
+            </article>
+          </div>
+          <div class="cta-container-expandad">
+            <span>יעקב חי דרך יצירה - בואו לצעוד איתנו בדרכו</span>
+            <button class="btn">לתרומה עכשיו</button>
+          </div>
+        </div>
       </section>
       <section class="partners_container">
         <article class="partners_container-txt">
-          <h2 id="header-about">חזון שמתגשם בעזרת שותפים ותמיכה רחבה.</h2>
+          <div class="header-wrapper">
+            <h2>חזון שמתגשם</h2>
+            <span>בעזרת שותפים ותמיכה רחבה.</span>
+          </div>
           <p>
             המרכז
             <span id="dream-like">לחלום כמו יעקב</span>
@@ -174,15 +205,17 @@
       </section>
       <section class="Yaakovs-section__container">
         <h2>יעקב עוזרי</h2>
-        <div class="image_yaakov">
-          <img src="assets/yaakov__image.png" alt="face" />
+        <div class="text-wrapper">
+          <div class="image_yaakov">
+            <img src="assets/yaakov__image.png" alt="face" />
+          </div>
+          <p>
+            כבר מילדותו יעקב עוזרי ז"ל היה יוצר, מעצב ואדם שהאמנות זרמה בדמו.
+            בבגרותו למד עיצוב תעשייתי בשנקר, וראה באמנות שפה פתוחה ומחברת, לכל
+            אדם, בכל גיל ומקום. הוא האמין בכוח היצירה לחבר, לרפא ולשנות – והלך
+            עם האמונה הזו לכל מקום.
+          </p>
         </div>
-        <p>
-          כבר מילדותו יעקב עוזרי ז"ל היה יוצר, מעצב ואדם שהאמנות זרמה בדמו.
-          בבגרותו למד עיצוב תעשייתי בשנקר, וראה באמנות שפה פתוחה ומחברת, לכל
-          אדם, בכל גיל ומקום. הוא האמין בכוח היצירה לחבר, לרפא ולשנות – והלך עם
-          האמונה הזו לכל מקום.
-        </p>
         <span>מיצירותיו של יעקב</span>
         <div class="Yaakovs-section__container-carousel" id="carousel-3">
           <div class="Yaakovs-section__card">
@@ -200,44 +233,46 @@
 
         <div class="dot-container" id="dotContainer-3"></div>
       </section>
-      <section class="final-cta__container">
-        <article class="final-cta__container-txt">
-          <h2 id="header-about">בואו להיות חלק מהחלום</h2>
-          <p>
-            המרכז לאמנות, יצירה ותרפיה לזכרו של יעקב עוזרי ז״ל קורם עור וגידים –
-            ואתם יכולים להיות שותפים בהקמתו.
-          </p>
-          <p>
-            עלות הפרויקט מוערך בכ- 5 מיליון ש"ח, מחצית מהסכום כבר גויס, התוכניות
-            מאושרות והשטח מוכן. כעת אנחנו יוצאים למהלך גיוס נוסף להשלמת המימון
-            כדי להפוך את החלום למציאות חיה ומרגשת.
-          </p>
-          <span>הצטרפו אלינו בהגשמת החלום</span>
-        </article>
-        <button class="btn">לתרומה עכשיו</button>
+      <section class="final-cta__container-wrapper">
+        <div class="final-cta__container">
+          <article class="final-cta__container-txt">
+            <h2 id="header-about">בואו להיות חלק מהחלום</h2>
+            <p>
+              המרכז לאמנות, יצירה ותרפיה לזכרו של יעקב עוזרי ז״ל קורם עור וגידים
+              – ואתם יכולים להיות שותפים בהקמתו.
+            </p>
+            <p>
+              עלות הפרויקט מוערך בכ- 5 מיליון ש"ח, מחצית מהסכום כבר גויס,
+              התוכניות מאושרות והשטח מוכן. כעת אנחנו יוצאים למהלך גיוס נוסף
+              להשלמת המימון כדי להפוך את החלום למציאות חיה ומרגשת.
+            </p>
+          </article>
+          <div class="btn-wrapper">
+            <span>הצטרפו אלינו בהגשמת החלום</span>
+            <button class="btn">לתרומה עכשיו</button>
+          </div>
+        </div>
       </section>
       <div class="contribution__container">
         <span>
           לא יכולים לתרום? נשמח להתנדבות, חיבורים או כל רעיון שיש לכם בלב.
         </span>
       </div>
-      <footer class="footer__container">
+    </main>
+    <footer class="footer__container-wrapper">
+      <div class="footer__container">
         <div class="footer-text">
           <div class="donation-info">
             <strong>לחלום כמו יעקב</strong>
-
             <p>
               <span>מייל:</span>
               <a href="mailto:hagardaniels@gmail.com">hagardaniels@gmail.com</a>
             </p>
-
             <p>
               <span>טלפון:</span>
               <span><!-- leave empty or add number here --></span>
             </p>
-
             <strong>חשבון בנק לתרומות</strong>
-
             <p>מרכז לאומנות ע״ש יעקב עוזרי</p>
             <p>בנק פועלים, סניף 714</p>
             <p>מס' חשבון 193943</p>
@@ -249,22 +284,19 @@
           </div>
         </div>
         <div class="footer-form">
-          <form class="contact-form" dir="rtl">
+          <form class="contact-form">
             <label>
               שם
               <input type="text" name="name" required />
             </label>
-
             <label>
               אימייל
               <input type="email" name="email" required />
             </label>
-
             <label>
               הודעה
               <textarea name="message" rows="5" required></textarea>
             </label>
-
             <div class="form-footer">
               <button type="submit">שלח</button>
               <div class="social-icons">
@@ -284,7 +316,7 @@
             </div>
           </form>
         </div>
-      </footer>
-    </main>
+      </div>
+    </footer>
   </body>
 </html>
