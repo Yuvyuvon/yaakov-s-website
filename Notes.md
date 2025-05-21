@@ -18,3 +18,7 @@ Footer Social icons to white font fot details less weight
 Yaakov section allign h2 and text to image highet | Check
 
 Partners Recreate header like all h2 trough website | Check
+
+
+
+remove container padding from text containers. (hebrew version)
