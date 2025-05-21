@@ -3,3 +3,13 @@
   --secondary-color: #592d20;
   --btn-background: #fbeddb;
 }
+
+.quote-translation {
+  font-family: 'GveretLevinAlefAlefAlef', serif;
+  color: var(--main-color);
+  font-size: 0.85rem;
+  text-align: center;
+  display: block;
+  margin-top: 0.3rem;
+  direction: ltr;
+}

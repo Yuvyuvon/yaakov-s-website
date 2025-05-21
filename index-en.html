@@ -1,378 +1,362 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yaakove's Ladder</title>
-    <!-- Style -->
-    <link rel="stylesheet" href="styles/style-en.css" />
-    <link rel="stylesheet" href="styles/responsive_breakpoints-en.css" />
-    <link rel="stylesheet" href="styles/global-en.css" />
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
-    <!-- Functions -->
-    <script src="functions.js" defer></script>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap"
-      rel="stylesheet" />
-  </head>
-  <body>
-    <!-- Loader -->
-    <section class="bg"></section>
-    <div class="loader">
-      <span class="loading-text">0%</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yaakov 's Ladder</title>
+  <!-- Style -->
+  <link rel="stylesheet" href="styles/style-en.css" />
+  <link rel="stylesheet" href="styles/responsive_breakpoints-en.css" />
+  <link rel="stylesheet" href="styles/global-en.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Functions -->
+  <script src="functions.js" defer></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Loader -->
+  <section class="bg"></section>
+  <div class="loader">
+    <span class="loading-text">0%</span>
+  </div>
+  <!-- Loader -->
+  <header>
+    <div class="logo">
+      <img src="assets/Logo_YO_2.svg" alt="Logo" />
     </div>
-    <!-- Loader -->
-    <header>
-      <div class="logo">
-        <img src="assets/Logo_YO_2.svg" alt="Logo" />
+    <div class="logo-text">
+      <p>Art, Creativity, and Therapy Center | Kfar Shamai</p>
+    </div>
+    <!-- Hamburger Icon -->
+    <div id="hamburger" class="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Side Navigation -->
+    <nav id="sideNav" class="side-nav">
+      <button class="close-nav" id="closeNav">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li>
+          <button id="switchLang" title="Switch to Hebrew" aria-label="Switch to Hebrew">
+            <i class="fa-solid fa-language"></i> HE
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-section">
+      <div class="container-hero-image">
+        <div class="hero-image-text">
+          <span id="quote-font" lang="he" title="Translation: Every good idea begins with a cloud that looks like a spaceship.">
+            "כי כל רעיון טוב מתחיל בענן שנראה כמו חללית"
+          </span>
+          <br />
+          <small class="quote-translation"><em>Yaakov Ozeri, of blessed memory</em></small>
+        </div>
       </div>
-      <div class="logo-text">
-        <p>Art, Creativity, and Therapy Center | Kfar Shamai</p>
+      <article class="container-hero-txt">
+        <div class="text-container">
+          <h1>
+            Fulfilling Yaakov’s Dream
+            <span>–</span>
+            <span>Art, Memory, and a Future in the Galilee</span>
+          </h1>
+          <div class="paragraph-hero">
+            <p>
+              In the village of Kfar Shamai, a new Center for Art and Therapy
+              is being established in memory of Yaakov Ozeri. It will be a
+              space for giving, connecting people, and inspiring through
+              creativity.
+            </p>
+          </div>
+          <div class="cta-btn">
+            <span id="cta-btn-span">
+              Join us in bringing the center to life.
+            </span>
+            <button class="btn-l">Donate Now</button>
+          </div>
+        </div>
+      </article>
+      <div class="cta">
+        <button class="btn-xl">Donate Now</button>
       </div>
-      <!-- Hamburger Icon -->
-      <div id="hamburger" class="hamburger">
-        <i class="fa-solid fa-bars"></i>
+    </section>
+    <section class="about-center-section">
+      <article class="container-center-txt">
+        <div class="text-container">
+          <h2>A Home for Creativity, Therapy, and Community</h2>
+          <div class="paragraph-center">
+            <p>
+              The center will promote culture and art in the northern
+              periphery, serving as an open and accessible space for all ages
+              to create, learn, connect, and grow through art.
+            </p>
+            <p>
+              The center will host art workshops, therapy groups, exhibitions,
+              lectures, and performances. The unique structure and the open
+              space around it will provide an experiential and professional
+              environment that enables creation, connection, and dialogue.
+            </p>
+          </div>
+        </div>
+      </article>
+      <div class="pictures-of-something__container" id="carousel-1">
+        <div class="pictures-of-something__card">
+          <div class="pictures-of-something__image">
+            <img src="./assets/image-placeholder.jpg" alt="Picture 1" />
+          </div>
+        </div>
+        <div class="pictures-of-something__card">
+          <div class="pictures-of-something__image">
+            <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
+          </div>
+        </div>
+        <div class="pictures-of-something__card">
+          <div class="pictures-of-something__image">
+            <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
+          </div>
+        </div>
+        <!-- Add more cards -->
       </div>
 
-      <!-- Side Navigation -->
-      <nav id="sideNav" class="side-nav">
-        <button class="close-nav" id="closeNav">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#">Terms and Conditions</a></li>
-          <li><button id="switchLang">HE</button></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="hero-section">
-        <div class="container-hero-image">
-          <div class="hero-image-text">
-            <span id="quote-font">
-              "כי כל רעיון טוב מתחיל בענן שנראה כמו חללית"
+      <div class="dot-container" id="dotContainer-1"></div>
+    </section>
+    <section class="about-center-section-expandad">
+      <div class="about-center-section-expandad container">
+        <div class="about-center-text-padding">
+          <h2 id="header-about">Seeing Far, Seeing Clearly</h2>
+          <span>
+            A design inspired by Yaakov’s vision device — a symbol of foresight and dreams.
+          </span>
+        </div>
+        <div class="top-section">
+          <article class="container-center-expendad-txt">
+            <p>
+              The building will feature round spaces, transparent walls,
+              outdoor creative areas, an intimate amphitheater, a graden for artists, and modular rooms — all designed
+              with a spirit of
+              openness, accessibility, and community. A center that places the
+              periphery at the heart of cultural life.
+            </p>
+            <span class="center-img-link">
+              View the 360° Renderings of the Center
             </span>
-            <span>יעקב עוזרי הי"ד</span>
+          </article>
+          <div class="googels-image">
+            <img src="assets/goggels.png" alt="goggels" />
           </div>
         </div>
-        <article class="container-hero-txt">
-          <div class="text-container">
-            <h1>
-              Fulfilling Yaakov’s Dream
-              <span>–</span>
-              <span>Art, Memory, and a Future in the Galilee</span>
-            </h1>
-            <div class="paragraph-hero">
-              <p>
-                In the village of Kfar Shamai, a new Center for Art and Therapy
-                is being established in memory of Yaakov Uzari. This will be a
-                space for giving, connecting people, and inspiring through
-                creativity.
-              </p>
-            </div>
-            <div class="cta-btn">
-              <span id="cta-btn-span">
-                Join us in bringing the center to life.
-              </span>
-              <button class="btn-l">Donate Now</button>
-            </div>
-          </div>
-        </article>
-        <div class="cta">
-          <button class="btn-xl">Donate Now</button>
-        </div>
-      </section>
-      <section class="about-center-section">
-        <article class="container-center-txt">
-          <div class="text-container">
-            <h2>A Home for Creativity, Therapy, and Community</h2>
-            <div class="paragraph-center">
-              <p>
-                The center will promote culture and art in the northern
-                periphery, serving as an open and accessible space for all ages
-                to create, learn, connect, and grow through art.
-              </p>
-              <p>
-                The center will host art workshops, therapy groups, exhibitions,
-                lectures, and performances. The unique structure and the open
-                space around it will provide an experiential and professional
-                environment that enables creation, connection, and dialogue.
-              </p>
-            </div>
-          </div>
-        </article>
-        <div class="pictures-of-something__container" id="carousel-1">
-          <div class="pictures-of-something__card">
-            <div class="pictures-of-something__image">
-              <img src="./assets/image-placeholder.jpg" alt="Picture 1" />
-            </div>
-          </div>
-          <div class="pictures-of-something__card">
-            <div class="pictures-of-something__image">
-              <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
-            </div>
-          </div>
-          <div class="pictures-of-something__card">
-            <div class="pictures-of-something__image">
-              <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
-            </div>
-          </div>
-          <!-- Add more cards -->
-        </div>
-
-        <div class="dot-container" id="dotContainer-1"></div>
-      </section>
-      <section class="about-center-section-expandad">
-        <div class="about-center-section-expandad container">
-          <div class="about-center-text-padding">
-            <h2 id="header-about">Seeing Far, Seeing Clearly</h2>
-            <span>
-              A design inspired by yaakov’s vision device —A symbol of horizon
-              and dream
-            </span>
-          </div>
-          <div class="top-section">
-            <article class="container-center-expendad-txt">
-              <p>
-                The building will feature round spaces, transparent walls,
-                outdoor creative areas, an intimate amphitheater, an artists'
-                garden, and modular rooms — all designed with a spirit of
-                openness, accessibility, and community. A center that places the
-                periphery at the heart of cultural life.
-              </p>
-              <span class="center-img-link">
-                View the 360° Renderings of the Center
-              </span>
-            </article>
-            <div class="googels-image">
-              <img src="assets/goggels.png" alt="goggels" />
-            </div>
-          </div>
-          <div class="bottom-section">
-            <div class="carousel_2_wrapper">
-              <div class="pictures-of-center__container" id="carousel-2">
-                <div class="pictures-of-center__card">
-                  <div class="pictures-of-center__image">
-                    <img src="assets/view-from-top.png" alt="Picture 1" />
-                  </div>
+        <div class="bottom-section">
+          <div class="carousel_2_wrapper">
+            <div class="pictures-of-center__container" id="carousel-2">
+              <div class="pictures-of-center__card">
+                <div class="pictures-of-center__image">
+                  <img src="assets/view-from-top.png" alt="Picture 1" />
                 </div>
-                <div class="pictures-of-center__card">
-                  <div class="pictures-of-center__image">
-                    <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
-                  </div>
-                </div>
-                <!-- Add more cards -->
               </div>
-              <div class="dot-container" id="dotContainer-2"></div>
+              <div class="pictures-of-center__card">
+                <div class="pictures-of-center__image">
+                  <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
+                </div>
+              </div>
+              <!-- Add more cards -->
             </div>
-            <!-- After Image -->
-            <article class="container-center-expendad-txt-2">
-              <p>
-                The center’s location in Kfar Shamai is no coincidence—it is the
-                landscape of Yaakov’s childhood, where he grew, dreamed, and
-                created.
-              </p>
-              <p>
-                Choosing this site is not only a geographic decision but a
-                continuation of Yaakov’s vision: to transform home and roots
-                into a source of creativity and inspiration for all.
-              </p>
-            </article>
+            <div class="dot-container" id="dotContainer-2"></div>
           </div>
-          <div class="cta-container-expandad">
-            <span>Join us in keeping Yakov’s dream alive</span>
-            <button class="btn">Donate Now</button>
-          </div>
-        </div>
-      </section>
-      <section class="partners_container">
-        <article class="partners_container-txt">
-          <div class="header-wrapper">
-            <h2>A Vision Coming to Life</h2>
-            <span>With the support of partners and a growing community.</span>
-          </div>
-          <p>
-            The
-            <span id="dream-like">"Dream Like Yaakov"</span>
-            Center is currently under development. Born from a moving personal
-            vision, the project is backed by professional planning and wide
-            support from institutional, community, and philanthropic partners in
-            Israel and around the world
-          </p>
-          <p>
-            We are in the final stage — your support will help transform the
-            dream into a living space for art, therapy, and inspiration.
-          </p>
-          <span>With heartfelt thanks to our supporters</span>
-        </article>
-        <div class="partners_container-logo-grid">
-          <div class="grid__item">
-            <img src="assets/image-placeholder.jpg" alt="Image-1" />
-          </div>
-          <div class="grid__item">
-            <img src="assets/image-placeholder.jpg" alt="Image-2" />
-          </div>
-          <div class="grid__item">
-            <img src="assets/image-placeholder.jpg" alt="Image-3" />
-          </div>
-          <div class="grid__item">
-            <img src="assets/image-placeholder.jpg" alt="Image-4" />
-          </div>
-          <div class="grid__item">
-            <img src="assets/image-placeholder.jpg" alt="Image-5" />
-          </div>
-          <div class="grid__item">
-            <img src="assets/image-placeholder.jpg" alt="Image-6" />
-          </div>
-        </div>
-      </section>
-      <section class="Yaakovs-section__container">
-        <h2>Ya'akov Uzari</h2>
-        <div class="text-wrapper">
-          <div class="image_yaakov">
-            <img src="assets/yaakov__image.png" alt="face" />
-          </div>
-          <div class="text-container">
+          <!-- After Image -->
+          <article class="container-center-expendad-txt-2">
             <p>
-              From a young age, Yaakov Uzari z"l was a creator, a designer, and
-              a soul deeply connected to art. As an adult, he studied Industrial
-              Design at Shenkar College and saw art as a universal language—open
-              and connecting for everyone, at every age and place. Yaakov
-              believed deeply in the power of creativity to connect, to heal,
-              and to bring change—and lived by this belief in every step he
-              took.
-            </p>
-          </div>
-        </div>
-        <span>Yaakov’s Works</span>
-        <div class="Yaakovs-section__container-carousel" id="carousel-3">
-          <div class="Yaakovs-section__card">
-            <div class="Yaakovs-section__image">
-              <img src="assets/work-1.png" alt="Picture 1" />
-            </div>
-          </div>
-          <div class="Yaakovs-section__card">
-            <div class="Yaakovs-section__image">
-              <img src="assets/work-2.png" alt="Picture 2" />
-            </div>
-          </div>
-          <!-- Add more cards -->
-        </div>
-
-        <div class="dot-container" id="dotContainer-3"></div>
-      </section>
-      <section class="final-cta__container-wrapper">
-        <div class="final-cta__container">
-          <article class="final-cta__container-txt">
-            <h2 id="header-about">Be Part of the Dream</h2>
-            <p>
-              The Center for Art, Creation, and Therapy in memory of Ya'akov
-              Uzari is becoming a reality and you can be part of its founding.
+              The center’s location in Kfar Shamai is no coincidence—it is the
+              landscape of Yaakov’s childhood, where he grew, dreamed, and
+              created.
             </p>
             <p>
-              The total cost of the project is estimated at 5 million NIS;
-              <br />
-              half has already been secured. Plans are approved, and the land is
-              ready. We are now launching a new fundraising campaign to complete
-              the funding and bring this dream to life.
+              Choosing this site is not only a geographic decision but a
+              continuation of Yaakov’s vision: to transform home and roots
+              into a source of creativity and inspiration for all.
             </p>
           </article>
-          <div class="btn-wrapper">
-            <span>Join us in making it happen</span>
-            <button class="btn">DONATE NOW</button>
-          </div>
         </div>
-      </section>
-      <div class="contribution__container">
-        <span>
-          <strong>Unable to Donate?</strong>
-          <br />
-          We welcome volunteers, connections, or any ideas you wish to share
-          from your heart.
-        </span>
+        <div class="cta-container-expandad">
+          <span>Join us in keeping Yaakov’s dream alive</span>
+          <button class="btn">Donate Now</button>
+        </div>
       </div>
-    </main>
-    <footer class="footer__container-wrapper">
-      <div class="footer__container">
-        <div class="footer-text">
-          <div class="donation-info">
-            <strong>DREAM LIKE YAAKOV</strong>
-            <p>
-              <span>Email:</span>
-              <a href="mailto:hagardaniels@gmail.com">hagardaniels@gmail.com</a>
-            </p>
-            <p>
-              <span>Phone:</span>
-              <span><!-- leave empty or add number here --></span>
-            </p>
-            <strong>Donation Details:</strong>
-            <p>Center for Art in Memory of Yaakov Uzari</p>
-            <p>Bank Hapoalim, Branch 714</p>
-            <p>Account Num: 193943</p>
-            <p>
-              IBAN:
-              <br />
-              IL320127140000000193943
-            </p>
+    </section>
+    <section class="partners_container">
+      <article class="partners_container-txt">
+        <div class="header-wrapper">
+          <h2>A Vision Coming to Life</h2>
+          <span>With the support of partners and a growing community.</span>
+        </div>
+        <p>
+          The
+          <span id="dream-like">"Dream Like Yaakov"</span>
+          Center is currently under development. Born from a deeply personal and moving
+          vision, the project is backed by professional planning and wide
+          support from institutional, community, and philanthropic partners in
+          Israel and around the world.
+        </p>
+        <p>
+          We are in the final stage — your support will help transform the
+          dream into a living space for art, therapy, and inspiration.
+        </p>
+        <span>With heartfelt thanks to our supporters</span>
+      </article>
+      <div class="partners_container-logo-grid">
+        <div class="grid__item">
+          <img src="assets/image-placeholder.jpg" alt="Image-1" />
+        </div>
+        <div class="grid__item">
+          <img src="assets/image-placeholder.jpg" alt="Image-2" />
+        </div>
+        <div class="grid__item">
+          <img src="assets/image-placeholder.jpg" alt="Image-3" />
+        </div>
+        <div class="grid__item">
+          <img src="assets/image-placeholder.jpg" alt="Image-4" />
+        </div>
+        <div class="grid__item">
+          <img src="assets/image-placeholder.jpg" alt="Image-5" />
+        </div>
+        <div class="grid__item">
+          <img src="assets/image-placeholder.jpg" alt="Image-6" />
+        </div>
+      </div>
+    </section>
+    <section class="Yaakovs-section__container">
+      <h2>Yaakov Ozeri</h2>
+      <div class="text-wrapper">
+        <div class="image_yaakov">
+          <img src="assets/yaakov__image.png" alt="face" />
+        </div>
+        <div class="text-container">
+          <p>
+            From a young age, Yaakov Ozeri, of blessed memory, was a creator, a designer, and a soul deeply connected to
+            art. As an adult, he studied Industrial
+            Design at Shenkar College and saw art as a universal language—open
+            and connecting for everyone, at every age and place. Yaakov
+            believed deeply in the power of creativity to connect, to heal,
+            and to bring change—and lived by this belief in every step he
+            took.
+          </p>
+        </div>
+      </div>
+      <span>Yaakov’s Works</span>
+      <div class="Yaakovs-section__container-carousel" id="carousel-3">
+        <div class="Yaakovs-section__card">
+          <div class="Yaakovs-section__image">
+            <img src="assets/work-1.png" alt="Picture 1" />
           </div>
         </div>
-        <div class="footer-form">
-          <form class="contact-form">
-            <label>
-              Full Name
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Enter your full name" />
-            </label>
-            <label>
-              Email
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Enter your email" />
-            </label>
-            <label>
-              Message
-              <textarea
-                name="message"
-                rows="5"
-                required
-                placeholder="Enter your message"></textarea>
-            </label>
-            <div class="form-footer">
-              <button type="submit">Send</button>
-              <div class="social-icons">
-                <a
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  aria-label="Facebook">
-                  <i class="fab fa-facebook"></i>
-                </a>
-                <a
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  aria-label="Instagram">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </div>
+        <div class="Yaakovs-section__card">
+          <div class="Yaakovs-section__image">
+            <img src="assets/work-2.png" alt="Picture 2" />
+          </div>
+        </div>
+        <!-- Add more cards -->
+      </div>
+
+      <div class="dot-container" id="dotContainer-3"></div>
+    </section>
+    <section class="final-cta__container-wrapper">
+      <div class="final-cta__container">
+        <article class="final-cta__container-txt">
+          <h2 id="header-about">Be Part of the Dream</h2>
+          <p>
+            The Center for Art, Creation, and Therapy in memory of Ya'akov
+            Ozeri is becoming a reality and you can help bring it to life.
+          </p>
+          <p>
+            The total cost of the project is estimated at 5 million NIS;
+            <br />
+            half has already been secured. Plans are approved, and the land is
+            ready. We are now launching a new fundraising campaign to complete
+            the funding and bring this dream to life.
+          </p>
+        </article>
+        <div class="btn-wrapper">
+          <span>Join us in making it happen</span>
+          <button class="btn">DONATE NOW</button>
+        </div>
+      </div>
+    </section>
+    <div class="contribution__container">
+      <span>
+        <strong>Unable to Donate?</strong>
+        <br />
+        We welcome volunteers, connections, or any ideas you wish to share
+        from your heart.
+      </span>
+    </div>
+  </main>
+  <footer class="footer__container-wrapper">
+    <div class="footer__container">
+      <div class="footer-text">
+        <div class="donation-info">
+          <strong>Dream Like Yaakov</strong>
+          <p>
+            <span>Email:</span>
+            <a href="mailto:hagardaniels@gmail.com">hagardaniels@gmail.com</a>
+          </p>
+          <p>
+            <span>Phone:</span>
+            <span><!-- leave empty or add number here --></span>
+          </p>
+          <strong>Donation Details:</strong>
+          <p>Center for Art in Memory of Yaakov Ozeri</p>
+          <p>Bank Hapoalim, Branch 714</p>
+          <p>Account Number: 193943</p>
+          <p>
+            IBAN:
+            <br />
+            IL320127140000000193943
+          </p>
+        </div>
+      </div>
+      <div class="footer-form">
+        <form class="contact-form">
+          <label>
+            Full Name
+            <input type="text" name="name" required placeholder="Enter your full name" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required placeholder="Enter your email" />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" required placeholder="Enter your message"></textarea>
+          </label>
+          <div class="form-footer">
+            <button type="submit">Send</button>
+            <div class="social-icons">
+              <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>
