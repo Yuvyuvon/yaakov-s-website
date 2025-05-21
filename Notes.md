@@ -22,3 +22,5 @@ Partners Recreate header like all h2 trough website | Check
 
 
 remove container padding from text containers. (hebrew version)
+
+Add favicon.
