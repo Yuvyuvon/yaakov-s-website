@@ -9,6 +9,7 @@
 html,
 body {
   overflow-x: hidden;
+  text-align: left;
 }
 
 /* Font import */
@@ -45,28 +46,6 @@ body {
   padding-inline: clamp(1rem, 5vw, 3rem);
 }
 
-.loading-text {
-  font-size: 3.125rem;
-  color: white;
-  z-index: 9999;
-  position: absolute;
-}
-
-.bg {
-  position: fixed;
-  top: -30px;
-  left: -30px;
-  width: calc(100vw + 60px);
-  height: calc(100vh + 60px);
-  z-index: 9998;
-  filter: blur(0px);
-}
-
-.bg,
-.loading-text {
-  display: none;
-}
-
 /* Start */
 
 /* Nav */
@@ -85,7 +64,7 @@ body {
 .hamburger {
   position: absolute;
   top: 24px;
-  left: 24px;
+  right: 24px;
   cursor: pointer;
 }
 
@@ -107,13 +86,13 @@ body {
 .side-nav {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 80%;
   max-width: 300px;
   height: 100%;
   background-color: #fff;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   padding: 2rem;
@@ -241,7 +220,7 @@ header {
 
 .container-hero-txt h1 {
   color: var(--main-color);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 2.25rem;
   font-style: normal;
@@ -252,7 +231,7 @@ header {
 
 .container-hero-txt p {
   color: #43403f;
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -290,6 +269,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 .cta .btn-xl {
@@ -306,8 +286,8 @@ header {
   border-radius: 10px;
   border: 2px solid #935e20;
   background: rgba(240, 238, 235, 0.6);
-  position: relative;
-  right: 12px;
+  position: absolute;
+  right: 24px;
   top: 16px;
 }
 
@@ -336,7 +316,7 @@ header {
 
 .container-center-txt h2 {
   color: var(--main-color);
-  text-align: right;
+  text-align: inherit;
   font-family: Heebo;
   font-size: 2.25rem;
   font-style: normal;
@@ -347,7 +327,7 @@ header {
 
 .container-center-txt p {
   color: #43403f;
-  text-align: right;
+  text-align: inherit;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -394,9 +374,9 @@ header {
 }
 
 /* Dot styles */
-.dot-container {
+.about-center-section .dot-container {
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
 }
 
 .dot {
@@ -437,7 +417,7 @@ header {
   display: flex;
   padding: 10px 24px;
   flex-direction: column;
-  direction: rtl;
+  direction: ltr;
   gap: 0.5rem;
   justify-content: space-evenly;
   align-self: stretch;
@@ -445,7 +425,7 @@ header {
 
 .about-center-text-padding span {
   color: var(--main-color);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -457,7 +437,7 @@ header {
   display: flex;
   padding: 6px 24px;
   flex-direction: column;
-  direction: rtl;
+  direction: ltr;
   gap: 20px;
   justify-content: space-evenly;
   align-self: stretch;
@@ -465,7 +445,7 @@ header {
 
 #header-about {
   color: var(--main-color);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 2.25rem;
   font-style: normal;
@@ -477,7 +457,7 @@ header {
 
 .container-center-expendad-txt p {
   color: #43403f;
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -487,8 +467,8 @@ header {
 
 .container-center-expendad-txt .center-img-link {
   color: #935e20;
-  text-align: right !important;
-  direction: rtl !important;
+  text-align: left;
+  direction: ltr;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -506,7 +486,7 @@ header {
 .googels-image {
   width: 100vw;
   height: auto;
-  padding-bottom: 16px;
+  padding: 24px 16px;
 }
 
 .googels-image img {
@@ -538,6 +518,10 @@ header {
   overflow: hidden;
 }
 
+.pictures-of-center__image {
+  height: fit-content;
+}
+
 .pictures-of-center__image img {
   width: 100%;
   min-height: 307px;
@@ -549,7 +533,7 @@ header {
 /* Dot styles */
 .dot-container {
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .dot {
@@ -573,14 +557,14 @@ header {
   display: flex;
   padding: 10px 24px;
   flex-direction: column;
-  direction: rtl;
+  direction: ltr;
   gap: 16px;
   align-self: stretch;
 }
 
 .container-center-expendad-txt-2 p:first-of-type {
   color: var(--main-color);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -590,7 +574,7 @@ header {
 
 .container-center-expendad-txt-2 p:last-of-type {
   color: #43403f;
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -602,19 +586,20 @@ header {
   display: flex;
   padding: 34px 24px 0px 24px;
   flex-direction: column;
-  direction: rtl;
+  direction: ltr;
   gap: 34px;
   align-self: stretch;
 }
 
 .cta-container-expandad span {
   color: #493937;
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
   line-height: 40px; /* 125% */
+  text-align: left;
 }
 
 .cta-container-expandad .btn {
@@ -654,7 +639,7 @@ header {
 
 .header-wrapper h2 {
   color: var(--main-color);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 2.25rem;
   font-style: normal;
@@ -671,11 +656,12 @@ div.header-wrapper span {
   font-weight: 600;
   line-height: 100%; /* 133.333% */
   display: block;
+  text-align: left;
 }
 
 .partners_container-txt p:first-of-type {
   color: var(--secondary-color);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -694,7 +680,7 @@ div.header-wrapper span {
 
 .partners_container-txt p:last-of-type {
   color: var(--main-color);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -704,7 +690,7 @@ div.header-wrapper span {
 
 .partners_container-txt span {
   color: var(--secondary-color);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.75rem;
   font-style: normal;
@@ -743,7 +729,7 @@ div.header-wrapper span {
 
 .Yaakovs-section__container h2 {
   color: #935e20;
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 2.25rem;
   font-style: normal;
@@ -754,7 +740,7 @@ div.header-wrapper span {
 
 .Yaakovs-section__container p {
   color: var(--Dark-text, #592d20);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 24px;
   font-style: normal;
@@ -764,7 +750,7 @@ div.header-wrapper span {
 
 .Yaakovs-section__container span {
   color: #935e20;
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 28px;
   font-style: normal;
@@ -854,14 +840,15 @@ div.header-wrapper span {
   display: flex;
   padding: 10px 24px;
   flex-direction: column;
-  direction: rtl;
+  direction: ltr;
+  text-align: left;
   gap: 16px;
   align-self: stretch;
 }
 
 .final-cta__container-txt p:first-of-type {
   color: var(--Light-text, #8b602d);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 24px;
   font-style: normal;
@@ -871,7 +858,7 @@ div.header-wrapper span {
 
 .final-cta__container-txt p:last-of-type {
   color: var(--Dark-text, #592d20);
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 24px;
   font-style: normal;
@@ -889,7 +876,7 @@ div.header-wrapper span {
 
 .btn-wrapper span {
   color: #592d20;
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.7rem;
   font-style: normal;
@@ -918,11 +905,12 @@ div.header-wrapper span {
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  direction: ltr;
 }
 
 .contribution__container span {
   color: #000;
-  text-align: right;
+  text-align: left;
   font-family: Heebo;
   font-size: 1.5rem;
   font-style: normal;
@@ -944,8 +932,8 @@ div.header-wrapper span {
 
 .donation-info {
   font-family: Heebo;
-  direction: rtl;
-  text-align: right;
+  direction: ltr;
+  text-align: left;
   color: white;
 }
 
