@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const carousel = document.getElementById(carouselId);
     const dotContainer = document.getElementById(dotContainerId);
     const cards = carousel.querySelectorAll(cardSelector);
-    const switchLangBtn = document.getElementById('switchLang');
 
     // Clear previous dots (in case this is rerun)
     dotContainer.innerHTML = '';
@@ -69,13 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
     showLoaderAndRedirect();
   }
 
+
   function showLoaderAndRedirect() {
-    // Show loader
+    const loader = document.querySelector('.loader');
     const text = document.querySelector('.loading-text');
     const bg = document.querySelector('.bg');
 
     let load = 0;
-    text.style.display = 'block';
+    loader.style.display = 'block';
     bg.style.display = 'block';
 
     let int = setInterval(() => {
@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (load > 99) {
         clearInterval(int);
-        // Redirect after loader completes
         const current = window.location.pathname;
         window.location.href = current.includes('index-en')
           ? 'index.html'
