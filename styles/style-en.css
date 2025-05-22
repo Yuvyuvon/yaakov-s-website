@@ -215,6 +215,18 @@ header {
   cursor: pointer;
   text-align: center;
 }
+.btn-switchlang {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#i-switchlang {
+  font-size: 24px;
+  padding-right: 4px;
+}
 
 /* Hero */
 .hero-section {
@@ -251,6 +263,7 @@ header {
   font-family: 'OH', heboo;
   z-index: 1;
   font-size: 1.65rem;
+  color: #000;
 }
 
 .container-hero-image span:last-of-type {
