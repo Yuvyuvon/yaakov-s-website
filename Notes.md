@@ -24,3 +24,31 @@ Partners Recreate header like all h2 trough website | Check
 remove container padding from text containers. (hebrew version)
 
 Add favicon.
+
+____________________________
+*VAR 1.1 Deployment
+
+Add images - some not found talk with hagar
+
+Texts - some not found talk to hagar
+
+Add Legal - Some not found talk to hagar
+
+Add accsability - use implamented tag [DONE]
+
+Add Favicon [DONE]
+
+Add link to payment - Use link from lilian 
+
+Add images of contributers - use folder in desktop 
+
+Translate yakkovs quote
+
+Add respunsivnes to carousel and arrows in desktop ver after images are ready
+
+Connect social links || Help setup Linkedin
+
+Form and mobile - Set form to GET to desnd details create buissnes email and phone number
+
+Run basic SEO Best practices from list 
+
