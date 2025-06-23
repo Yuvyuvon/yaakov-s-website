@@ -40,13 +40,13 @@ Add Favicon [DONE]
 
 Add link to payment - Use link from lilian 
 
-Add images of contributers - use folder in desktop 
+Add images of contributers - use folder in desktop [DONE]
 
-Translate yakkovs quote
+Translate yakkovs quote [DONE]
 
-Add respunsivnes to carousel and arrows in desktop ver after images are ready
+Add responsivnes to carousel and arrows in desktop ver after images are ready
 
-Connect social links || Help setup Linkedin
+Connect social links || Help setup Linkedin 
 
 Form and mobile - Set form to GET to desnd details create buissnes email and phone number
 
