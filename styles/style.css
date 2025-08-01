@@ -14,8 +14,8 @@ body {
 /* Font import */
 
 @font-face {
-  font-family: 'OH';
-  src: url('../fonts/OHYaakovOzeri-Regular.woff2') format('woff2');
+  font-family: "OH";
+  src: url("../fonts/OHYaakovOzeri-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -27,6 +27,59 @@ body {
   --secondary-color: #592d20;
   --btn-background: #fbeddb;
   --container-padding-pc: 56px 32px;
+}
+
+/* Lightbox */
+.glightbox {
+  display: block;
+}
+/* RTL: NEXT on the left, PREV on the right */
+[dir="rtl"] .glightbox-container .gnext {
+  inset-inline-start: 1rem;
+  inset-inline-end: auto;
+  left: 1rem !important;
+  right: auto !important; /* fallback to GLightbox's left/right */
+}
+[dir="rtl"] .glightbox-container .gprev {
+  inset-inline-end: 1rem;
+  inset-inline-start: auto;
+  right: 1rem !important;
+  left: auto !important;
+}
+
+/* flip chevrons if they look reversed */
+[dir="rtl"] .glightbox-container .gnext svg {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .glightbox-container .gprev svg {
+  transform: scaleX(-1);
+}
+
+/* Neutralize any global image rules inside overlay */
+.glightbox-container img {
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Let the inner container expand */
+.glightbox-container .ginner-container {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+/* Center and scale the media to the viewport */
+.glightbox-container .gslide-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.glightbox-container .gslide-image img {
+  max-width: 96vw; /* big but with a small margin */
+  max-height: 92vh;
 }
 
 .h2-desktop {
@@ -51,12 +104,11 @@ body {
   width: 60px;
   aspect-ratio: 1;
   color: var(--main-color);
-  background:
-    linear-gradient(currentColor 0 0) 100%  0,
-    linear-gradient(currentColor 0 0) 0  100%;
+  background: linear-gradient(currentColor 0 0) 100% 0,
+    linear-gradient(currentColor 0 0) 0 100%;
   background-size: 50.1% 50.1%;
   background-repeat: no-repeat;
-  animation:  l7-0 1s infinite steps(1);
+  animation: l7-0 1s infinite steps(1);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -67,25 +119,38 @@ body {
 }
 .loader::before,
 .loader::after {
-  content:"";
+  content: "";
   position: absolute;
   inset: 0 50% 50% 0;
   background: currentColor;
-  transform: scale(var(--s,1)) perspective(150px) rotateY(0deg);
-  transform-origin: bottom right; 
-  animation: l7-1 .5s infinite linear alternate;
+  transform: scale(var(--s, 1)) perspective(150px) rotateY(0deg);
+  transform-origin: bottom right;
+  animation: l7-1 0.5s infinite linear alternate;
 }
 .loader::after {
-  --s:-1,-1;
+  --s: -1, -1;
 }
 @keyframes l7-0 {
-  0%  {transform: scaleX(1)  rotate(0deg)}
-  50% {transform: scaleX(-1) rotate(-90deg)}
+  0% {
+    transform: scaleX(1) rotate(0deg);
+  }
+  50% {
+    transform: scaleX(-1) rotate(-90deg);
+  }
 }
 @keyframes l7-1 {
-  49.99% {transform:scale(var(--s,1)) perspective(150px) rotateX(-90deg) ;filter:grayscale(0)}
-  50%    {transform:scale(var(--s,1)) perspective(150px) rotateX(-90deg) ;filter:grayscale(0.8)}
-  100%   {transform:scale(var(--s,1)) perspective(150px) rotateX(-180deg);filter:grayscale(0.8)}
+  49.99% {
+    transform: scale(var(--s, 1)) perspective(150px) rotateX(-90deg);
+    filter: grayscale(0);
+  }
+  50% {
+    transform: scale(var(--s, 1)) perspective(150px) rotateX(-90deg);
+    filter: grayscale(0.8);
+  }
+  100% {
+    transform: scale(var(--s, 1)) perspective(150px) rotateX(-180deg);
+    filter: grayscale(0.8);
+  }
 }
 
 .loading-text {
@@ -127,6 +192,7 @@ body {
   top: 36px;
   left: 36px;
   cursor: pointer;
+  color: #592d20;
 }
 
 .hamburger i {
@@ -203,10 +269,10 @@ header {
   position: relative;
 }
 
-.logo-text p{
+.logo-text p {
   color: #493937;
   font-family: Heebo;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-style: normal;
   font-weight: 400;
   line-height: 30px; /* 20px */
@@ -259,7 +325,7 @@ header {
 }
 
 #quote-font {
-  font-family: 'OH', heboo;
+  font-family: "OH", heboo;
   z-index: 1;
   font-size: 26px;
 }
@@ -339,7 +405,7 @@ header {
   min-height: 251px;
   margin: 0 auto;
   overflow: hidden;
-  background-image: url(../assets/CTA-Hero.png);
+  background-image: url(../assets/CTA-Hero.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -416,55 +482,102 @@ header {
 
 /* Carousel 1 */
 
+/* ───────────────────────── 1. wrapper & rail fixes ───────────────────────── */
+
+/* give the outer wrapper position:relative so arrows can float */
+.pictures-of-something {
+  position: relative;
+}
+
+/* force the rail to scroll left-to-right even inside an RTL page */
+/* Rail: keep LTR so scrollLeft math is normal in an RTL page */
 .pictures-of-something__container {
+  direction: ltr;
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   gap: 1rem;
-  scrollbar-width: none; /* Firefox */
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-
 .pictures-of-something__container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
 
+/* 3-up on desktop, 2-up tablet, 1-up mobile */
 .pictures-of-something__card {
-  flex: 0 0 auto;
+  flex: 0 0 calc((100% - 2rem) / 3); /* (100% - 2 gaps) / 3 */
+  aspect-ratio: 4 / 3; /* keeps a steady height */
   scroll-snap-align: start;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-  border-radius: 2px;
-  overflow: hidden;
+  scroll-snap-stop: always;
 }
 
+@media (max-width: 1024px) {
+  .pictures-of-something__card {
+    flex: 0 0 calc((100% - 1rem) / 2);
+  }
+}
+@media (max-width: 640px) {
+  .pictures-of-something__card {
+    flex: 0 0 100%;
+  }
+}
+
+.pictures-of-something__image,
 .pictures-of-something__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border-radius: 0.4rem;
 }
 
-/* Dot styles */
-.dot-container {
-  text-align: center;
-  margin-bottom: 0.5rem;
+/* ───────────────────────── 2. arrow buttons ───────────────────────── */
+
+.pictures-nav {
+  --size: 3rem;
+  position: absolute;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  width: var(--size);
+  height: var(--size);
+  border: 0;
+  border-radius: 50%;
+  font: 2rem/1 "Heebo", sans-serif;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  z-index: 2;
 }
 
-.dot {
-  display: inline-block;
+/* page is RTL → “prev” sits at right, “next” at left */
+/* “Prev” on the leading edge, “Next” on the trailing edge */
+.pictures-nav.prev {
+  inset-inline-start: 0.5rem;
+}
+.pictures-nav.next {
+  inset-inline-end: 0.5rem;
+}
+@media (max-width: 768px) {
+  .pictures-nav {
+    display: none;
+  } /* hide arrows on phones */
+}
+
+/* ───────────────────────── 3. dots (unchanged except spacing tweak) ───────────────────────── */
+/* Keep dot order left→right even on RTL pages */
+[dir="rtl"] .dot-container {
+  direction: ltr;
+} /* so dot order matches pages */
+/* Dots — final, winning rules (desktop + mobile) */
+.dot-container .dot {
+  display: inline-block; /* normalize inline span sizing */
   width: 10px;
   height: 10px;
-  margin: 0 6px;
-  background-color: #bbb;
   border-radius: 50%;
-  transition: background-color 0.3s;
-  cursor: pointer;
+  background-color: #bbb; /* use the SAME property as active */
 }
 
-.dot.active {
-  background-color: #555;
+.dot-container .dot.active {
+  background-color: #555; /* same property, placed later => wins */
 }
 
 /* About section expanded */
@@ -474,7 +587,7 @@ header {
   padding: 32px 0px;
   gap: 24px;
   background-color: #f7f6f2;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 .about-center-section-expandad .container {
@@ -483,7 +596,6 @@ header {
   padding: 32px 0px;
   gap: 0px;
   background-color: #f7f6f2;
-  overflow-x: hidden;
 }
 
 .about-center-text-padding {
@@ -569,23 +681,28 @@ header {
 
 /* Carousel 2 */
 
-.pictures-of-center__container {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  gap: 1rem;
-  scrollbar-width: none; /* Firefox */
+.carousel_2_wrapper {
+  position: relative;
 }
 
+.pictures-of-center__container {
+  direction: ltr; /* ← force LTR math like carousel-1 */
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  gap: 1rem;
+  scrollbar-width: none;
+}
 .pictures-of-center__container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
 
 .pictures-of-center__card {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: 100vw;
+  scroll-snap-stop: always;
+  width: 100vw; /* keep full-bleed; or use 100% if you prefer within container */
   height: 100%;
   border-radius: 2px;
   overflow: hidden;
@@ -595,28 +712,22 @@ header {
   width: 100%;
   min-height: 307px;
   object-fit: cover;
-  background-repeat: no-repeat;
   display: block;
 }
 
-/* Dot styles */
-.dot-container {
-  text-align: center;
-  margin-bottom: 0.5rem;
+/* Dots — keep ONE copy globally (don’t duplicate in each carousel block) */
+[dir="rtl"] .dot-container {
+  direction: ltr;
 }
-
-.dot {
+.dot-container .dot {
   display: inline-block;
-  max-width: 10px;
-  max-height: 10px;
-  margin: 0 6px;
-  background-color: #bbb;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  transition: background-color 0.3s;
-  cursor: pointer;
+  background-color: #bbb;
+  margin: 0 6px;
 }
-
-.dot.active {
+.dot-container .dot.active {
   background-color: #555;
 }
 
@@ -683,8 +794,18 @@ header {
   font-size: 2.25rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 100%; /* 36px */
+  line-height: 100%;
   max-width: 280px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.cta-container-expandad button.btn:hover {
+  background-color: #feede1;
+  color: #581f18;
+  transform: scale(1.01);
 }
 
 /* Partners */
@@ -779,7 +900,6 @@ div.header-wrapper span {
   display: flex;
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(60, 58, 59, 0.3);
   border-radius: 10px;
   align-items: center;
   transition: transform 0.3s ease;
@@ -792,13 +912,13 @@ div.header-wrapper span {
   display: block;
 }
 
-.grid__item:hover { 
+.grid__item:hover {
   transform: scale(1.05);
-  } 
+}
 
 .grid__item img:hover {
   transform: scale(1.01);
-  }
+}
 
 /* Yaakov's section */
 
@@ -893,19 +1013,18 @@ div.header-wrapper span {
   margin-bottom: 0.5rem;
 }
 
-.dot {
-  display: inline-block;
+/* Dots — final, winning rules (desktop + mobile) */
+.dot-container .dot {
+  display: inline-block; /* normalize inline span sizing */
   width: 10px;
   height: 10px;
-  margin: 0 6px;
-  background-color: #bbb;
   border-radius: 50%;
-  transition: background-color 0.3s;
-  cursor: pointer;
+  background-color: #bbb; /* use the SAME property as active */
+  margin: 0 6px; /* space between dots */
 }
 
-.dot.active {
-  background-color: #555;
+.dot-container .dot.active {
+  background-color: #555; /* same property, placed later => wins */
 }
 
 /* Section CTA */
@@ -915,7 +1034,7 @@ div.header-wrapper span {
   flex-direction: column;
   padding: 24px 0px;
   gap: 16px;
-  background-image: url('../assets/Background.png');
+  background-image: url("../assets/Background.png");
   overflow-x: hidden;
 }
 
@@ -967,11 +1086,11 @@ div.header-wrapper span {
 }
 
 .btn-wrapper .btn {
-  padding: 12px 26px;
+  padding: 10px 16px;
   border-radius: 10px;
   border: 2px solid #493937;
   background: #feedd9;
-  color: #493937;
+  color: #581f18;
   font-family: Heebo;
   font-size: 1.7rem;
   font-style: normal;
@@ -979,7 +1098,7 @@ div.header-wrapper span {
   line-height: 100%;
 }
 
-/* Contribution contaneir  */
+/* Contribution container  */
 .contribution__container {
   display: flex;
   width: 100vw;

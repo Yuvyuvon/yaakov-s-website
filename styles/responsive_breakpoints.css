@@ -16,7 +16,7 @@
   }
 
   #quote-font {
-    font-family: 'OH', heboo;
+    font-family: "OH", heboo;
     z-index: 1;
     font-size: 1rem;
   }
@@ -64,7 +64,7 @@
   }
 
   #quote-font {
-    font-family: 'OH', heboo;
+    font-family: "OH", heboo;
     z-index: 1;
     font-size: 2rem;
   }
@@ -247,6 +247,16 @@
     line-height: 100%; /* 39px */
     display: block;
     border-radius: 8px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+  }
+
+  .cta-btn .btn-l:hover {
+    background-color: #feede1;
+    color: #581f18;
+    transform: scale(1.05);
   }
 
   .cta {
@@ -254,7 +264,7 @@
     max-height: 510px;
     margin: 0 auto;
     overflow: hidden;
-    background-image: url(/assets/CTA-Hero.png);
+    background-image: url(/assets/CTA-Hero.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -345,7 +355,7 @@
   .about-center-section-expanded {
     width: 100vw;
     background-color: #f7f6f2;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     margin: 0 auto;
   }
 
@@ -524,6 +534,16 @@
     border-radius: 8px;
     flex-shrink: 0;
     min-width: max-content;
+    cursor: pointer;
+    transform: scale(1); /* initial state */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out; /* optional, for smooth color change */
+  }
+
+  .cta-container-expandad button.btn:hover {
+    background-color: #feede1;
+    color: #581f18;
+    transform: scale(1.01);
   }
 
   /* Partners */
@@ -615,42 +635,41 @@
   }
 
   .partners_container-logo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-  justify-items: center;
-  align-items: center;
-  max-width: 1200px;
-  max-height: 400px;
-  margin: 0 auto;
-  padding: 0.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px;
+    max-height: 400px;
+    margin: 0 auto;
+    padding: 0.5rem 0;
   }
 
   .grid__item {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(60, 58, 59, 0.3);
-  border-radius: 10px;
-  align-items: center;
-  transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    align-items: center;
+    transition: transform 0.3s ease;
   }
 
-  .grid__item:hover { 
-  transform: scale(1.05);
-  } 
+  .grid__item:hover {
+    transform: scale(1.05);
+  }
 
   .grid__item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
   }
 
   .grid__item img:hover {
-  transform: scale(1.01);
+    transform: scale(1.01);
   }
 
   /* Yaakov's section */
@@ -739,7 +758,7 @@
 
   .final-cta__container-wrapper {
     width: 100vw;
-    background-image: url('../assets/Background.png');
+    background-image: url("../assets/Background.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -808,30 +827,7 @@
     line-height: 58px; /* 241.667% */
   }
 
-  .btn-wrapper .btn {
-    padding: 12px 26px;
-    border-radius: 10px;
-    border: 2px solid #493937;
-    background: #feedd9;
-    color: #493937;
-    font-family: Heebo;
-    font-size: 1.7rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%;
-  }
-
-  .cta-container-expandad span {
-    color: var(--main-color);
-    font-family: Heebo;
-    font-size: 1.9rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%;
-    padding: 0px;
-  }
-
-  .cta-container-expandad button.btn {
+  .btn-wrapper button.btn {
     background-color: var(--btn-background);
     color: #581f18;
     font-family: Heebo;
@@ -844,9 +840,29 @@
     border-radius: 8px;
     flex-shrink: 0;
     min-width: max-content;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
   }
 
-  /* Contribution contaneir  */
+  .btn-wrapper .btn:hover {
+    background-color: #feede1;
+    color: #581f18;
+    transform: scale(1.05);
+  }
+
+  .cta-container-expandad span {
+    color: var(--main-color);
+    font-family: Heebo;
+    font-size: 1.9rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    padding: 0px;
+  }
+
+  /* Contribution container  */
   .contribution__container {
     display: flex;
     flex-direction: column;
@@ -982,5 +998,24 @@
 
   .contact-form .social-icons a:hover {
     color: #aaaaaa; /* Optional: hover effect */
+  }
+
+  /* Dots — final, winning rules (desktop + mobile) */
+  .dot-container {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .dot-container .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 0 6px; /* ← spacing */
+  }
+
+  .dot-container .dot.active {
+    background-color: #555;
   }
 }

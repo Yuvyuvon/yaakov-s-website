@@ -15,8 +15,8 @@ body {
 /* Font import */
 
 @font-face {
-  font-family: 'OH';
-  src: url('../fonts/OHYaakovOzeri-Regular.woff2') format('woff2');
+  font-family: "OH";
+  src: url("../fonts/OHYaakovOzeri-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -52,12 +52,11 @@ body {
   width: 60px;
   aspect-ratio: 1;
   color: var(--main-color);
-  background:
-    linear-gradient(currentColor 0 0) 100%  0,
-    linear-gradient(currentColor 0 0) 0  100%;
+  background: linear-gradient(currentColor 0 0) 100% 0,
+    linear-gradient(currentColor 0 0) 0 100%;
   background-size: 50.1% 50.1%;
   background-repeat: no-repeat;
-  animation:  l7-0 1s infinite steps(1);
+  animation: l7-0 1s infinite steps(1);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -68,25 +67,38 @@ body {
 }
 .loader::before,
 .loader::after {
-  content:"";
+  content: "";
   position: absolute;
   inset: 0 50% 50% 0;
   background: currentColor;
-  transform: scale(var(--s,1)) perspective(150px) rotateY(0deg);
-  transform-origin: bottom right; 
-  animation: l7-1 .5s infinite linear alternate;
+  transform: scale(var(--s, 1)) perspective(150px) rotateY(0deg);
+  transform-origin: bottom right;
+  animation: l7-1 0.5s infinite linear alternate;
 }
 .loader::after {
-  --s:-1,-1;
+  --s: -1, -1;
 }
 @keyframes l7-0 {
-  0%  {transform: scaleX(1)  rotate(0deg)}
-  50% {transform: scaleX(-1) rotate(-90deg)}
+  0% {
+    transform: scaleX(1) rotate(0deg);
+  }
+  50% {
+    transform: scaleX(-1) rotate(-90deg);
+  }
 }
 @keyframes l7-1 {
-  49.99% {transform:scale(var(--s,1)) perspective(150px) rotateX(-90deg) ;filter:grayscale(0)}
-  50%    {transform:scale(var(--s,1)) perspective(150px) rotateX(-90deg) ;filter:grayscale(0.8)}
-  100%   {transform:scale(var(--s,1)) perspective(150px) rotateX(-180deg);filter:grayscale(0.8)}
+  49.99% {
+    transform: scale(var(--s, 1)) perspective(150px) rotateX(-90deg);
+    filter: grayscale(0);
+  }
+  50% {
+    transform: scale(var(--s, 1)) perspective(150px) rotateX(-90deg);
+    filter: grayscale(0.8);
+  }
+  100% {
+    transform: scale(var(--s, 1)) perspective(150px) rotateX(-180deg);
+    filter: grayscale(0.8);
+  }
 }
 
 .loading-text {
@@ -107,7 +119,6 @@ body {
   filter: blur(0px);
   display: none;
 }
-
 
 /* Start */
 
@@ -260,7 +271,7 @@ header {
 }
 
 #quote-font {
-  font-family: 'OH', heboo;
+  font-family: "OH", heboo;
   z-index: 1;
   font-size: 1.65rem;
   color: #000;
@@ -341,7 +352,7 @@ header {
   min-height: 251px;
   margin: 0 auto;
   overflow: hidden;
-  background-image: url(../assets/CTA-Hero.png);
+  background-image: url(../assets/CTA-Hero.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -788,7 +799,6 @@ div.header-wrapper span {
   display: flex;
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(60, 58, 59, 0.3);
   border-radius: 10px;
   align-items: center;
   transition: transform 0.3s ease;
@@ -801,13 +811,13 @@ div.header-wrapper span {
   display: block;
 }
 
-.grid__item:hover { 
+.grid__item:hover {
   transform: scale(1.05);
-  } 
+}
 
 .grid__item img:hover {
   transform: scale(1.01);
-  }
+}
 
 /* Yaakov's section */
 
@@ -924,7 +934,7 @@ div.header-wrapper span {
   flex-direction: column;
   padding: 24px 0px;
   gap: 16px;
-  background-image: url('../assets/Background.png');
+  background-image: url("../assets/Background.png");
   overflow-x: hidden;
 }
 
@@ -981,11 +991,11 @@ div.header-wrapper span {
   border-radius: 10px;
   border: 2px solid #493937;
   background: #feedd9;
-  color: #493937;
+  color: #592d20;
   font-family: Heebo;
   font-size: 1.7rem;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 100%;
 }
 
