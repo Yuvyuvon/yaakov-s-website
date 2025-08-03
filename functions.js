@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize both carousels
   setupCarousel("carousel-1", "dotContainer-1", ".pictures-of-something__card");
-  setupCarousel("carousel-2", "dotContainer-2", ".pictures-of-center__card");
+  // setupCarousel("carousel-2", "dotContainer-2", ".pictures-of-center__card");
   setupCarousel("carousel-3", "dotContainer-3", ".Yaakovs-section__card");
   document.getElementById("hamburger").addEventListener("click", toggleNav);
   document.getElementById("closeNav").addEventListener("click", closeNav);

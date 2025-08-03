@@ -979,9 +979,10 @@ div.header-wrapper span {
 /* Carousel 3 */
 
 .Yaakovs-section__container-carousel {
+  direction: ltr;
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
   gap: 1rem;
   scrollbar-width: none; /* Firefox */
@@ -992,19 +993,29 @@ div.header-wrapper span {
 }
 
 .Yaakovs-section__card {
-  flex: 0 0 auto;
+  flex: 0 0 calc((100% - 2rem) / 3); /* (100% - 2 gaps) / 3 */
+  aspect-ratio: 4 / 3; /* keeps a steady height */
   scroll-snap-align: start;
-  width: 100vw;
-  height: 100%;
-  border-radius: 2px;
-  overflow: hidden;
+  scroll-snap-stop: always;
 }
 
+@media (max-width: 1024px) {
+  .Yaakovs-section__card {
+    flex: 0 0 calc((100% - 1rem) / 2);
+  }
+}
+@media (max-width: 640px) {
+  .Yaakovs-section__card {
+    flex: 0 0 100%;
+  }
+}
+
+.Yaakovs-section__image,
 .Yaakovs-section__image img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  background-repeat: no-repeat;
-  display: block;
+  border-radius: 0.4rem;
 }
 
 /* Dot styles */
@@ -1013,18 +1024,18 @@ div.header-wrapper span {
   margin-bottom: 0.5rem;
 }
 
-/* Dots — final, winning rules (desktop + mobile) */
+/* Dots — final, winning rules (desktop + mobile)  */
 .dot-container .dot {
-  display: inline-block; /* normalize inline span sizing */
+  display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #bbb; /* use the SAME property as active */
-  margin: 0 6px; /* space between dots */
+  background-color: #bbb;
+  margin: 0 6px;
 }
 
 .dot-container .dot.active {
-  background-color: #555; /* same property, placed later => wins */
+  background-color: #555;
 }
 
 /* Section CTA */
