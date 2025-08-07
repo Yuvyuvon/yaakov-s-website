@@ -29,58 +29,62 @@ body {
   --container-padding-pc: 56px 32px;
 }
 
-/* Lightbox */
-.glightbox {
-  display: block;
+/* ─── GLightbox RTL / sizing fixes ───────────────────────────────────────── */
+
+/* 1.  Make the overlay itself LTR so GLightbox math stays simple */
+.glightbox-container {
+  direction: ltr !important;
 }
-/* RTL: NEXT on the left, PREV on the right */
-[dir="rtl"] .glightbox-container .gnext {
-  inset-inline-start: 1rem;
+
+/* 2.  Arrow placement (logical insets work in both LTR / RTL) */
+.glightbox-container .gprev {
+  inset-inline-start: 1rem; /* ← prev at the start edge  */
   inset-inline-end: auto;
-  left: 1rem !important;
-  right: auto !important; /* fallback to GLightbox's left/right */
 }
-[dir="rtl"] .glightbox-container .gprev {
-  inset-inline-end: 1rem;
+.glightbox-container .gnext {
+  inset-inline-end: 1rem; /* next → at the end edge    */
   inset-inline-start: auto;
-  right: 1rem !important;
-  left: auto !important;
 }
 
-/* flip chevrons if they look reversed */
+/* 3.  Ensure arrows are *not* flipped in RTL */
+[dir="rtl"] .glightbox-container .gprev svg,
 [dir="rtl"] .glightbox-container .gnext svg {
-  transform: scaleX(-1);
-}
-[dir="rtl"] .glightbox-container .gprev svg {
-  transform: scaleX(-1);
+  transform: none !important;
 }
 
-/* Neutralize any global image rules inside overlay */
-.glightbox-container img {
-  width: auto !important;
-  height: auto !important;
-}
-
-/* Let the inner container expand */
-.glightbox-container .ginner-container {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
-}
-
-/* Center and scale the media to the viewport */
+/* 4.  Keep media centered without forcing full-viewport sizing */
 .glightbox-container .gslide-media {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
 }
 .glightbox-container .gslide-image img {
-  max-width: 96vw; /* big but with a small margin */
+  max-width: 96vw;
   max-height: 92vh;
+  will-change: transform; /* smoother GPU compositing */
 }
+
+/* 5.  Prevent page behind the overlay from scrolling */
+body.glightbox-open {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+/* 6.  Safety cap: never exceed container size */
+.glightbox-container .ginner-container,
+.glightbox-container .gslide-media,
+.glightbox-container .gslide-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 7.  Remove your earlier arrow-reset overrides (keep here for reference)
+[dir="rtl"] .glightbox-container .gnext,
+[dir="rtl"] .glightbox-container .gprev {
+  left: auto !important;
+  right: auto !important;
+}
+*/
 
 .h2-desktop {
   font-size: 3.1875rem;

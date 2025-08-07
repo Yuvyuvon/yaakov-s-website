@@ -16,6 +16,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Lightbox -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"
+      defer
+    ></script>
     <!-- Functions -->
     <script src="functions.js" defer></script>
     <script
@@ -139,31 +148,69 @@
             </div>
           </div>
         </article>
-        <div class="pictures-of-something__container" id="carousel-1">
-          <div class="pictures-of-something__card">
-            <div class="pictures-of-something__image">
-              <img src="./assets/12.jpg" alt="Picture 1" />
-            </div>
-          </div>
-          <div class="pictures-of-something__card">
-            <div class="pictures-of-something__image">
-              <img src="./assets/13.jpg" alt="Picture 2" />
-            </div>
-          </div>
-          <div class="pictures-of-something__card">
-            <div class="pictures-of-something__image">
-              <img src="./assets/14.jpg" alt="Picture 3" />
-            </div>
-          </div>
-          <div class="pictures-of-something__card">
-            <div class="pictures-of-something__image">
-              <img src="./assets/15.jpg" alt="Picture 4" />
-            </div>
-          </div>
-          <!-- Add more cards -->
-        </div>
+        <!-- ✦ ONE wrapper for everything ✦ -->
+        <div class="pictures-of-something" id="gallery-1">
+          <!-- ← arrow (desktop-only, floats over the rail) -->
+          <button class="pictures-nav prev" aria-label="Previous slide">
+            ‹
+          </button>
 
-        <div class="dot-container" id="dotContainer-1"></div>
+          <!-- ─── horizontal rail ─── -->
+          <div class="pictures-of-something__container" id="carousel-1">
+            <div class="pictures-of-something__card">
+              <div class="pictures-of-something__image">
+                <img
+                  src="./assets/12.jpg"
+                  data-full="./assets/12.jpg"
+                  alt="Picture 1"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div class="pictures-of-something__card">
+              <div class="pictures-of-something__image">
+                <img
+                  src="./assets/13.jpg"
+                  data-full="./assets/13.jpg"
+                  alt="Picture 2"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div class="pictures-of-something__card">
+              <div class="pictures-of-something__image">
+                <img
+                  src="./assets/14.jpg"
+                  data-full="./assets/14.jpg"
+                  alt="Picture 3"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div class="pictures-of-something__card">
+              <div class="pictures-of-something__image">
+                <img
+                  src="./assets/15.jpg"
+                  data-full="./assets/15.jpg"
+                  alt="Picture 4"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <!-- add more .pictures-of-something__card blocks as needed -->
+          </div>
+          <!-- ──────────────────────── -->
+
+          <!-- → arrow -->
+          <button class="pictures-nav next" aria-label="Next slide">›</button>
+
+          <!-- dots -->
+          <div class="dot-container" id="dotContainer-1"></div>
+        </div>
       </section>
       <section class="about-center-section-expandad">
         <div class="about-center-section-expandad container">
@@ -266,6 +313,9 @@
           <div class="grid__item">
             <img src="assets/dor_azulay.png" alt="Image-3" />
           </div>
+          <div class="grid__item">
+            <img src="assets/Shenkar-modified.jpg" alt="Image-4" />
+          </div>
         </div>
       </section>
       <section class="Yaakovs-section__container">
@@ -287,41 +337,47 @@
           </div>
         </div>
         <span>Yaakov’s Works</span>
-        <div class="Yaakovs-section__container-carousel" id="carousel-3">
-          <div class="Yaakovs-section__card">
-            <div class="Yaakovs-section__image">
-              <img src="assets/work-1.png" alt="Picture 1" />
+        <div class="pictures-of-something" id="gallery-3">
+          <button class="pictures-nav prev" aria-label="Previous slide">
+            ‹
+          </button>
+          <div class="Yaakovs-section__container-carousel" id="carousel-3">
+            <div class="Yaakovs-section__card">
+              <div class="Yaakovs-section__image">
+                <img src="assets/work-1.png" alt="Picture 1" />
+              </div>
             </div>
-          </div>
-          <div class="Yaakovs-section__card">
-            <div class="Yaakovs-section__image">
-              <img src="assets/work-2.png" alt="Picture 2" />
+            <div class="Yaakovs-section__card">
+              <div class="Yaakovs-section__image">
+                <img src="assets/work-2.png" alt="Picture 2" />
+              </div>
             </div>
-          </div>
-          <div class="Yaakovs-section__card">
-            <div class="Yaakovs-section__image">
-              <img src="assets/8.jpg" alt="Picture 3" />
+            <div class="Yaakovs-section__card">
+              <div class="Yaakovs-section__image">
+                <img src="assets/8.jpg" alt="Picture 3" />
+              </div>
             </div>
-          </div>
-          <div class="Yaakovs-section__card">
-            <div class="Yaakovs-section__image">
-              <img src="assets/9.jpg" alt="Picture 4" />
+            <div class="Yaakovs-section__card">
+              <div class="Yaakovs-section__image">
+                <img src="assets/9.jpg" alt="Picture 4" />
+              </div>
             </div>
-          </div>
-          <div class="Yaakovs-section__card">
-            <div class="Yaakovs-section__image">
-              <img src="assets/10.jpg" alt="Picture 5" />
+            <div class="Yaakovs-section__card">
+              <div class="Yaakovs-section__image">
+                <img src="assets/10.jpg" alt="Picture 5" />
+              </div>
             </div>
-          </div>
-          <div class="Yaakovs-section__card">
-            <div class="Yaakovs-section__image">
-              <img src="assets/11.jpg" alt="Picture 6" />
+            <div class="Yaakovs-section__card">
+              <div class="Yaakovs-section__image">
+                <img src="assets/11.jpg" alt="Picture 6" />
+              </div>
             </div>
+            <!-- Add more cards -->
           </div>
-          <!-- Add more cards -->
-        </div>
+          <button class="pictures-nav next" aria-label="Next slide">›</button>
 
-        <div class="dot-container" id="dotContainer-3"></div>
+          <div class="dot-container" id="dotContainer-3"></div>
+        </div>
       </section>
       <section id="final-cta" class="final-cta__container-wrapper">
         <div class="final-cta__container">
@@ -365,7 +421,7 @@
             </p>
             <p>
               <span>Phone:</span>
-              <span><!-- leave empty or add number here --></span>
+              <a href="tel:+972-52-831-2729">972-52-831-2729+</a>
             </p>
             <strong>Donation Details:</strong>
             <p>Center for Art in Memory of Yaakov Ozeri</p>

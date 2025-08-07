@@ -755,19 +755,16 @@
     letter-spacing: 0.1px;
   }
 
-  /* carousel */
+  /* carousel-3*/
 
   .Yaakovs-section__container-carousel {
+    direction: ltr;
     display: flex;
     overflow-x: auto;
-    align-items: center;
-    justify-content: space-around;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
-    width: 100%;
-    padding: 16px 0;
-    margin: 0;
+    gap: 1rem;
+    scrollbar-width: none; /* Firefox */
   }
 
   .Yaakovs-section__container-carousel::-webkit-scrollbar {
@@ -775,21 +772,18 @@
   }
 
   .Yaakovs-section__card {
-    flex: 0 1 100%;
-    scroll-snap-align: center;
-    display: flex;
+    flex: 0 0 calc((100% - 2rem) / 3); /* (100% - 2 gaps) / 3 */
+    aspect-ratio: 4 / 3; /* keeps a steady height */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
-  .Yaakovs-section__image {
-    width: 100%;
-  }
-
+  .Yaakovs-section__image,
   .Yaakovs-section__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    border-radius: 2px;
+    border-radius: 0.4rem;
   }
 
   /* final-cta */
