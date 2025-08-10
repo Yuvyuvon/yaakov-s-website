@@ -310,14 +310,18 @@ header {
   aspect-ratio: 664 / 557;
   overflow: hidden;
   margin: 0 auto;
-  background-image: url(/assets/Hero-pc.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+}
+
+/* move the visible area down */
+.container-hero-image picture img {
+  object-fit: cover; /* you already have this */
+  object-position: center 95%; /* ↑ increase % to push image down */
+  width: 100%;
+  height: 100%;
 }
 
 .container-hero-image .hero-image-text {
@@ -326,6 +330,7 @@ header {
   flex-direction: column;
   align-items: flex-end;
   gap: 4px;
+  position: absolute;
 }
 
 #quote-font {
@@ -683,25 +688,6 @@ header {
   height: 100%;
 }
 
-/* Carousel 2 */
-
-.carousel_2_wrapper {
-  position: relative;
-}
-
-.pictures-of-center__container {
-  direction: ltr; /* ← force LTR math like carousel-1 */
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-  gap: 1rem;
-  scrollbar-width: none;
-}
-.pictures-of-center__container::-webkit-scrollbar {
-  display: none;
-}
-
 .pictures-of-center__card {
   flex: 0 0 auto;
   scroll-snap-align: start;
@@ -714,25 +700,7 @@ header {
 
 .pictures-of-center__image img {
   width: 100%;
-  min-height: 307px;
-  object-fit: cover;
-  display: block;
-}
-
-/* Dots — keep ONE copy globally (don’t duplicate in each carousel block) */
-[dir="rtl"] .dot-container {
-  direction: ltr;
-}
-.dot-container .dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #bbb;
-  margin: 0 6px;
-}
-.dot-container .dot.active {
-  background-color: #555;
+  height: 100%;
 }
 
 /* Second part of expand */
@@ -1111,6 +1079,24 @@ div.header-wrapper span {
   font-style: normal;
   font-weight: 500;
   line-height: 100%;
+  text-decoration: none;
+}
+
+.btn-wrapper .btn:hover {
+  background-color: #feede1;
+  color: #581f18;
+  transform: scale(1.01);
+}
+
+.btn-wrapper .btn {
+  text-decoration: none;
+  color: #581f18;
+}
+
+.btn-wrapper .btn:link,
+.btn-wrapper .btn:visited {
+  color: #581f18;
+  text-decoration: none;
 }
 
 /* Contribution container  */

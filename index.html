@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yaakov 's Ladder</title>
+    <!-- Description -->
+    <meta
+      name="description"
+      content="לחלום כמו יעקב – מרכז לאמנות, יצירה ותרפיה בכפר שמאי, המוקדש לזכר יעקב עוזרי הי״ד. הצטרפו לסדנאות, תערוכות ואירועים מרגשים המשלבים השראה, קהילה וריפוי."
+    />
     <!-- Style -->
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/responsive_breakpoints.css" />
@@ -41,6 +46,13 @@
     <!-- favicon -->
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="assets/favicon.ico" />
+    <!-- preload hero -->
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/Hero-pc.avif"
+      type="image/avif"
+    />
   </head>
 
   <body>
@@ -93,10 +105,21 @@
     <main>
       <section class="hero-section">
         <div class="container-hero-image">
-          <div class="hero-image-text">
-            <span id="quote-font">
-              "כי כל רעיון טוב מתחיל בענן שנראה כמו חללית"
-            </span>
+          <picture>
+            <source type="image/avif" srcset="/assets/Hero-pc.avif" />
+            <!-- PNG fallback goes in the <img> -->
+            <img
+              src="/assets/Hero-pc.avif"
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
+
+          <div class="hero-image-text" dir="rtl">
+            <span id="quote-font"
+              >"כי כל רעיון טוב מתחיל בענן שנראה כמו חללית"</span
+            >
             <span>יעקב עוזרי הי"ד</span>
           </div>
         </div>
@@ -152,8 +175,8 @@
             <div class="pictures-of-something__card">
               <div class="pictures-of-something__image">
                 <img
-                  src="./assets/12.jpg"
-                  data-full="./assets/12.jpg"
+                  src="./assets/12.avif"
+                  data-full="./assets/12.avif"
                   alt="Picture 1"
                   loading="lazy"
                 />
@@ -163,8 +186,8 @@
             <div class="pictures-of-something__card">
               <div class="pictures-of-something__image">
                 <img
-                  src="./assets/13.jpg"
-                  data-full="./assets/13.jpg"
+                  src="./assets/13.avif"
+                  data-full="./assets/13.avif"
                   alt="Picture 2"
                   loading="lazy"
                 />
@@ -174,8 +197,8 @@
             <div class="pictures-of-something__card">
               <div class="pictures-of-something__image">
                 <img
-                  src="./assets/14.jpg"
-                  data-full="./assets/14.jpg"
+                  src="./assets/14.avif"
+                  data-full="./assets/14.avif"
                   alt="Picture 3"
                   loading="lazy"
                 />
@@ -185,8 +208,8 @@
             <div class="pictures-of-something__card">
               <div class="pictures-of-something__image">
                 <img
-                  src="./assets/15.jpg"
-                  data-full="./assets/15.jpg"
+                  src="./assets/15.avif"
+                  data-full="./assets/15.avif"
                   alt="Picture 4"
                   loading="lazy"
                 />
@@ -231,38 +254,19 @@
               >
             </article>
             <div class="googels-image">
-              <img src="assets/goggels.png" alt="goggels" />
+              <img src="assets/goggels.avif" alt="goggels" />
             </div>
           </div>
           <div class="bottom-section">
             <div class="carousel_2_wrapper" id="gallery-2">
-              <!-- ← arrow -->
-              <!-- <button class="pictures-nav prev" aria-label="Previous slide">
-                ‹
-              </button> -->
-
               <div class="pictures-of-center__container" id="carousel-2">
                 <div class="pictures-of-center__card">
                   <div class="pictures-of-center__image">
-                    <img src="assets/view-from-top.png" alt="Picture 1" />
+                    <img src="assets/view-from-top.avif" alt="Picture 1" />
                   </div>
                 </div>
-                <!-- <div class="pictures-of-center__card">
-                  <div class="pictures-of-center__image">
-                    <img src="./assets/image-placeholder.jpg" alt="Picture 2" />
-                  </div>
-                </div> -->
               </div>
-
-              <!-- → arrow -->
-              <!-- <button class="pictures-nav next" aria-label="Next slide">
-                ›
-              </button> -->
-
-              <!-- dots -->
-              <div class="dot-container" id="dotContainer-2"></div>
             </div>
-
             <!-- After Image -->
             <article class="container-center-expendad-txt-2">
               <p>
@@ -301,23 +305,23 @@
         </article>
         <div class="partners_container-logo-grid">
           <div class="grid__item">
-            <img src="assets/Logo marom golan 2.png" alt="Image-1" />
+            <img src="assets/Logo marom golan 2.avif" alt="Image-1" />
           </div>
           <div class="grid__item">
-            <img src="assets/logo _itizk&alon.png" alt="Image-2" />
+            <img src="assets/logo _itizk&alon.avif" alt="Image-2" />
           </div>
           <div class="grid__item">
-            <img src="assets/dor_azulay.png" alt="Image-3" />
+            <img src="assets/dor_azulay.avif" alt="Image-3" />
           </div>
           <div class="grid__item">
-            <img src="assets/Shenkar-modified.jpg" alt="Image-4" />
+            <img src="assets/Shenkar-modified.avif" alt="Image-4" />
           </div>
         </div>
       </section>
       <section class="Yaakovs-section__container">
         <div class="text-wrapper">
           <div class="image_yaakov">
-            <img src="assets/yaakov__image.png" alt="face" />
+            <img src="assets/yaakov__image.avif" alt="face" />
           </div>
           <div class="text-container">
             <h2>יעקב עוזרי</h2>
@@ -337,32 +341,32 @@
           <div class="Yaakovs-section__container-carousel" id="carousel-3">
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/work-1.png" alt="Picture 1" />
+                <img src="assets/work-1.avif" alt="Picture 1" />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/work-2.png" alt="Picture 2" />
+                <img src="assets/work-2.avif" alt="Picture 2" />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/8.jpg" alt="Picture 3" />
+                <img src="assets/8.avif" alt="Picture 3" />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/9.jpg" alt="Picture 4" />
+                <img src="assets/9.avif" alt="Picture 4" />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/10.jpg" alt="Picture 5" />
+                <img src="assets/10.avif" alt="Picture 5" />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/11.jpg" alt="Picture 6" />
+                <img src="assets/11.avif" alt="Picture 6" />
               </div>
             </div>
             <!-- Add more cards -->
@@ -388,7 +392,15 @@
           </article>
           <div class="btn-wrapper">
             <span>הצטרפו אלינו בהגשמת החלום</span>
-            <button class="btn">לתרומה עכשיו</button>
+            <a
+              class="btn"
+              href="https://meshulam.co.il/s/a7c70787-5416-623a-aa9d-36e517ef7a2d"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="תרומה עכשיו למרכז לאמנות, יצירה ותרפיה בכפר שמאי"
+            >
+              תרומה עכשיו
+            </a>
           </div>
         </div>
       </section>
