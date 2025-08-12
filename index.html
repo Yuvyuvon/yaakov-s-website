@@ -3,16 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yaakov 's Ladder</title>
+    <title>Yaakov’s Ladder</title>
+
+    <!-- Indexing -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yaakovladder.com/" />
+
+    <!-- Language alternates -->
+    <link rel="alternate" href="https://yaakovladder.com/" hreflang="he-IL" />
+    <link
+      rel="alternate"
+      href="https://yaakovladder.com/index-en.html"
+      hreflang="en"
+    />
+    <link
+      rel="alternate"
+      href="https://yaakovladder.com/"
+      hreflang="x-default"
+    />
+
     <!-- Description -->
     <meta
       name="description"
       content="לחלום כמו יעקב – מרכז לאמנות, יצירה ותרפיה בכפר שמאי, המוקדש לזכר יעקב עוזרי הי״ד. הצטרפו לסדנאות, תערוכות ואירועים מרגשים המשלבים השראה, קהילה וריפוי."
     />
-    <!-- Style -->
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="styles/responsive_breakpoints.css" />
-    <link rel="stylesheet" href="styles/global.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/responsive_breakpoints.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+
     <!-- Icons -->
     <link
       rel="stylesheet"
@@ -21,7 +43,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!-- LightBox -->
+
+    <!-- Lightbox -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
@@ -30,12 +53,14 @@
       src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"
       defer
     ></script>
-    <!-- Functions -->
-    <script src="functions.js" defer></script>
+
+    <!-- App Scripts -->
+    <script src="/functions.js" defer></script>
     <script
       src="https://static.elfsight.com/platform/platform.js"
       async
     ></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,16 +68,61 @@
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <!-- favicon -->
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="assets/favicon.ico" />
-    <!-- preload hero -->
+
+    <!-- Favicons -->
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/apple-touch-icon.png"
+      sizes="180x180"
+    />
+
+    <!-- Preload LCP hero (keep AVIF for page render; use JPEG/PNG for OG below) -->
     <link
       rel="preload"
       as="image"
       href="/assets/Hero-pc.avif"
       type="image/avif"
     />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Yaakov’s Ladder" />
+    <meta
+      property="og:title"
+      content="לחלום כמו יעקב – מרכז לאמנות, יצירה ותרפיה"
+    />
+    <meta
+      property="og:description"
+      content="מרכז לאמנות, יצירה ותרפיה בכפר שמאי המשלב השראה, קהילה וריפוי."
+    />
+    <meta property="og:url" content="https://yaakovladder.com/" />
+    <meta
+      property="og:image"
+      content="https://yaakovladder.com/assets/Hero-pc.png"
+    />
+    <!-- Optional: help scrapers -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="לחלום כמו יעקב – מרכז לאמנות, יצירה ותרפיה"
+    />
+    <meta
+      name="twitter:description"
+      content="מרכז לאמנות, יצירה ותרפיה בכפר שמאי המשלב השראה, קהילה וריפוי."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yaakovladder.com/assets/Hero-pc.png"
+    />
+
+    <!-- Nice-to-have -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
   </head>
 
   <body>
@@ -413,47 +483,97 @@
     <footer class="footer__container-wrapper">
       <div class="footer__container">
         <div class="footer-text">
-          <div class="donation-info">
+          <div class="donation-info" dir="rtl">
             <strong>לחלום כמו יעקב</strong>
+
             <p>
               <span>מייל:</span>
               <a href="mailto:hagardaniels@gmail.com">hagardaniels@gmail.com</a>
             </p>
+
             <p>
               <span>טלפון:</span>
-              <a href="tel:+972-52-831-2729">972-52-831-2729+</a>
+              <!-- E.164 format for dial links -->
+              <a href="tel:+972528312729">972-52-831-2729+</a>
             </p>
+
             <strong>חשבון בנק לתרומות</strong>
             <p>מרכז לאמנות ע״ש יעקב עוזרי</p>
             <p>בנק פועלים, סניף 714</p>
             <p>מס' חשבון 193943</p>
             <p>
-              IBAN:
-              <br />
+              IBAN:<br />
               IL320127140000000193943
             </p>
           </div>
         </div>
+
         <div class="footer-form">
-          <form class="contact-form">
-            <label>
-              שם
-              <input type="text" name="name" required />
-            </label>
-            <label>
-              אימייל
-              <input type="email" name="email" required />
-            </label>
-            <label>
-              הודעה
-              <textarea name="message" rows="5" required></textarea>
-            </label>
+          <!-- ✅ FormSubmit integration -->
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/657eb66c264d57c9d562d52035b78818"
+            method="POST"
+            accept-charset="UTF-8"
+            dir="rtl"
+          >
+            <!-- Fields -->
+            <label for="name">שם</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              autocomplete="name"
+              required
+            />
+
+            <label for="email">אימייל</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              dir="ltr"
+              inputmode="email"
+              autocomplete="email"
+              required
+            />
+
+            <label for="message">הודעה</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <!-- FormSubmit options -->
+            <input
+              type="hidden"
+              name="_subject"
+              value="פניה חדשה מהאתר – לחלום כמו יעקב"
+            />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="true" />
+            <!-- TODO: change to your real thank-you page URL -->
+            <input
+              type="hidden"
+              name="_next"
+              value="https://yaakovladder.com/thanks.html"
+            />
+
+            <!-- Honeypot (anti-spam) -->
+            <input type="text" name="_honey" style="display: none" />
+
+            <!-- Optional auto-reply to the sender -->
+            <input
+              type="hidden"
+              name="_autoresponse"
+              value="שלום, פנייתך התקבלה ונחזור אליך בהקדם. תודה!"
+            />
+
             <div class="form-footer">
               <button type="submit">שלח</button>
+
               <div class="social-icons">
                 <a
                   href="https://www.facebook.com"
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
                 >
                   <i class="fab fa-facebook"></i>
@@ -461,6 +581,7 @@
                 <a
                   href="https://www.instagram.com"
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                 >
                   <i class="fab fa-instagram"></i>
@@ -468,6 +589,7 @@
               </div>
             </div>
           </form>
+          <!-- End form -->
         </div>
       </div>
     </footer>

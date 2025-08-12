@@ -252,14 +252,18 @@ header {
   aspect-ratio: 664 / 557;
   overflow: hidden;
   margin: 0 auto;
-  background-image: url(/assets/Hero-pc.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+}
+
+/* move the visible area down */
+.container-hero-image picture img {
+  object-fit: cover; /* you already have this */
+  object-position: center 95%; /* ↑ increase % to push image down */
+  width: 100%;
+  height: 100%;
 }
 
 .container-hero-image .hero-image-text {
@@ -268,6 +272,7 @@ header {
   flex-direction: column;
   align-items: flex-end;
   gap: 4px;
+  position: absolute;
 }
 
 #quote-font {
@@ -628,61 +633,19 @@ header {
   height: 100%;
 }
 
-/* Carousel 2 */
-
-.pictures-of-center__container {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  gap: 1rem;
-  scrollbar-width: none; /* Firefox */
-}
-
-.pictures-of-center__container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
 .pictures-of-center__card {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: 100vw;
+  scroll-snap-stop: always;
+  width: 100vw; /* keep full-bleed; or use 100% if you prefer within container */
   height: 100%;
   border-radius: 2px;
   overflow: hidden;
 }
 
-.pictures-of-center__image {
-  height: fit-content;
-}
-
 .pictures-of-center__image img {
   width: 100%;
-  min-height: 307px;
-  object-fit: cover;
-  background-repeat: no-repeat;
-  display: block;
-}
-
-/* Dot styles */
-.dot-container {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.dot {
-  display: inline-block;
-  max-width: 10px;
-  max-height: 10px;
-  margin: 0 6px;
-  background-color: #bbb;
-  border-radius: 50%;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #555;
+  height: 100%;
 }
 
 /* Second part of expand */
@@ -1035,7 +998,7 @@ div.header-wrapper span {
 
 .btn-wrapper span {
   color: #592d20;
-  text-align: left;
+  text-align: right;
   font-family: Heebo;
   font-size: 1.7rem;
   font-style: normal;
@@ -1044,16 +1007,34 @@ div.header-wrapper span {
 }
 
 .btn-wrapper .btn {
-  padding: 12px 26px;
+  padding: 10px 16px;
   border-radius: 10px;
   border: 2px solid #493937;
   background: #feedd9;
-  color: #592d20;
+  color: #581f18;
   font-family: Heebo;
   font-size: 1.7rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 100%;
+  text-decoration: none;
+}
+
+.btn-wrapper .btn:hover {
+  background-color: #feede1;
+  color: #581f18;
+  transform: scale(1.01);
+}
+
+.btn-wrapper .btn {
+  text-decoration: none;
+  color: #581f18;
+}
+
+.btn-wrapper .btn:link,
+.btn-wrapper .btn:visited {
+  color: #581f18;
+  text-decoration: none;
 }
 
 /* Contribution contaneir  */
