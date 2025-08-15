@@ -140,6 +140,8 @@ body {
   top: 24px;
   right: 24px;
   cursor: pointer;
+  color: #592d20;
+  border: none;
 }
 
 .hamburger i {
@@ -364,23 +366,48 @@ header {
   position: relative;
 }
 
-.cta .btn-xl {
-  display: flex;
-  padding: 12px 26px;
+/* Make link-buttons behave like buttons */
+.cta a.btn-xl {
+  display: inline-flex; /* consistent sizing/alignment */
   justify-content: center;
   align-items: center;
+  padding: 12px 26px;
+
   color: #935e20;
-  font-family: Heebo;
+  font-family: Heebo, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   font-size: 36px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 100%; /* 36px */
+  line-height: 1; /* safer than 100% */
+
   border-radius: 10px;
   border: 2px solid #935e20;
   background: rgba(240, 238, 235, 0.6);
-  position: absolute;
-  right: 24px;
-  top: 16px;
+
+  text-decoration: none; /* kill underline */
+  cursor: pointer;
+
+  /* center it */
+  margin-inline: auto;
+  margin-block-start: 16px;
+  margin-inline-start: 16px; /* instead of right: 12px */
+
+  /* remove the risky offsets */
+  position: static; /* ← or simply remove right/top/position */
+}
+
+/* Keep color/underline consistent across states */
+.cta a.btn-xl:hover,
+.cta a.btn-xl:focus,
+.cta a.btn-xl:active,
+.cta a.btn-xl:visited {
+  color: #935e20;
+  text-decoration: none;
+}
+
+/* Visible keyboard focus (a11y) */
+.cta a.btn-xl:focus-visible {
+  outline: 3px solid #000; /* or your brand color */
+  outline-offset: 2px;
 }
 
 .cta-btn .btn-l {
@@ -701,6 +728,7 @@ header {
 
 .cta-container-expandad .btn {
   display: flex;
+  text-decoration: none;
   padding: 12px 26px;
   justify-content: center;
   align-items: center;
@@ -712,8 +740,18 @@ header {
   font-size: 2.25rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 100%; /* 36px */
+  line-height: 100%;
   max-width: 280px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.cta-container-expandad button.btn:hover {
+  background-color: #feede1;
+  color: #581f18;
+  transform: scale(1.01);
 }
 
 /* Partners */
@@ -955,7 +993,7 @@ div.header-wrapper span {
   padding: 24px 0px;
   gap: 16px;
   background-image: url("../assets/Background.png");
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 .final-cta__container-txt {

@@ -94,6 +94,16 @@
 /* 💻 Desktop Breakpoint (≥1024px) */
 /* ============================= */
 @media (min-width: 1120px) {
+  /* Glightbox */
+
+  /* 6.  Safety cap: never exceed container size */
+  .glightbox-container .ginner-container,
+  .glightbox-container .gslide-media,
+  .glightbox-container .gslide-image img {
+    width: 65%;
+    height: 55%;
+  }
+
   /* Header */
 
   /* Nav */
@@ -257,8 +267,12 @@
     line-height: 100%; /* 39px */
     display: block;
     border-radius: 8px;
+    border: 2px solid #581f18;
     cursor: pointer;
-    transform: scale(1) ease-in-out 0.3s;
+    text-decoration: none;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
   }
 
   .cta-btn .btn-l:hover {
@@ -279,7 +293,7 @@
     aspect-ratio: 2.159;
   }
 
-  .cta button.btn-xl {
+  .cta a.btn-xl {
     display: none;
   }
 
@@ -547,8 +561,9 @@
     padding: 0px;
   }
 
-  .cta-container-expandad button.btn {
+  .cta-container-expandad a.btn {
     background-color: var(--btn-background);
+    text-decoration: none;
     color: #581f18;
     font-family: Heebo;
     font-size: 2rem;
@@ -566,7 +581,7 @@
       color 0.3s ease-in-out; /* optional, for smooth color change */
   }
 
-  .cta-container-expandad button.btn:hover {
+  .cta-container-expandad a.btn:hover {
     background-color: #feede1;
     color: #581f18;
     transform: scale(1.01);

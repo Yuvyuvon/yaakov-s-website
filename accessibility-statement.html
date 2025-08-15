@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>הצהרת נגישות – Yaakov’s Ladder</title>
+    <style>
+      :root {
+        --max: 940px;
+        --ink: #121212;
+        --muted: #52555b;
+        --line: #e8e9ee;
+        --accent: #0b57d0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: system-ui, -apple-system, "Noto Sans Hebrew", "Segoe UI",
+          Arial, sans-serif;
+        line-height: 1.65;
+        margin: 0;
+        color: var(--ink);
+        background: #fff;
+      }
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 2rem 1rem 3rem;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      header {
+        margin-bottom: 1rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+        margin: 0.25rem 0;
+      }
+      h2 {
+        font-size: 1.35rem;
+        margin: 1.75rem 0 0.5rem;
+      }
+      h3 {
+        font-size: 1.15rem;
+        margin: 1.25rem 0 0.4rem;
+      }
+      p {
+        margin: 0.5rem 0;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .note {
+        background: #f7f7f9;
+        border: 1px solid var(--line);
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+      }
+      .ok {
+        background: #effbf1;
+        border-color: #b9ebc0;
+      }
+      .warn {
+        background: #fff6d6;
+        border-color: #ffe08a;
+      }
+      ul,
+      ol {
+        margin: 0.25rem 0 0.75rem;
+      }
+      li {
+        margin: 0.15rem 0;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid var(--line);
+        margin: 1.25rem 0;
+      }
+      footer {
+        margin-top: 2rem;
+        border-top: 1px solid var(--line);
+        padding-top: 1rem;
+        color: var(--muted);
+      }
+
+      /* Skip link */
+      .skip {
+        position: absolute;
+        inset-inline-start: 1rem;
+        top: -1000px;
+        background: #000;
+        color: #fff;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+      }
+      .skip:focus {
+        top: 1rem;
+        outline: 2px solid #fff;
+      }
+
+      /* Keyboard focus */
+      :where(a, button, [role="button"], summary, input, select, textarea) {
+        outline: none;
+      }
+      :where(
+          a,
+          button,
+          [role="button"],
+          summary,
+          input,
+          select,
+          textarea
+        ):focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+        border-radius: 6px;
+      }
+
+      /* TOC */
+      nav.toc {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        background: #fafafc;
+      }
+      nav.toc ul {
+        list-style: none;
+        padding: 0;
+      }
+      nav.toc li {
+        margin: 0.25rem 0;
+      }
+      nav.toc a {
+        display: inline-block;
+        padding: 0.1rem 0;
+      }
+      time {
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#content">דלג לתוכן</a>
+
+    <main id="content" class="wrap" role="main">
+      <header>
+        <h1>הצהרת נגישות</h1>
+        <p><strong>עמותת מרכז לאמנות ע"ש יעקב עוזרי</strong></p>
+        <p class="muted">
+          עודכנה לאחרונה:
+          <time id="updated" datetime="2025-08-14">14 באוגוסט 2025</time>
+        </p>
+        <p class="note">
+          מטרת הצהרה זו היא לייעל את חוויית השימוש ולשפר את השירות עבור כל
+          המשתמשים, ובפרט עבור אנשים עם מוגבלויות, תוך עמידה בעקרונות נגישות
+          ושוויון הזדמנויות.
+        </p>
+      </header>
+
+      <nav class="toc" aria-label="תוכן העניינים">
+        <ul>
+          <li><a href="#conformance">עמידה בתקנים</a></li>
+          <li><a href="#browsers">תאימות דפדפנים וסביבות</a></li>
+          <li><a href="#means">אמצעי נגישות באתר</a></li>
+          <li><a href="#display">שינוי תצוגה וגדלי טקסט</a></li>
+          <li><a href="#keyboard">ניווט במקלדת</a></li>
+          <li><a href="#assistive">תאימות לטכנולוגיות מסייעות</a></li>
+          <li><a href="#thirdparty">רכיבי צד שלישי</a></li>
+          <li><a href="#limits">סייגים לנגישות</a></li>
+          <li><a href="#contact">נתקלתם בבעיה? יצירת קשר</a></li>
+        </ul>
+      </nav>
+
+      <section id="conformance" aria-labelledby="conformance-h">
+        <h2 id="conformance-h">עמידה בתקנים</h2>
+        <p>
+          ההתאמות באתר יושמו בהתאם לתקנה 35 לתקנות שוויון זכויות לאנשים עם
+          מוגבלות (התאמות נגישות לשירות), התשע"ג–2013, ובהלימה להנחיות
+          <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1
+          ברמה <strong>AA</strong>, בכפוף לשינויים והתאמות המפורטות בתקן
+          הישראלי.
+        </p>
+      </section>
+
+      <section id="browsers" aria-labelledby="browsers-h">
+        <h2 id="browsers-h">תאימות דפדפנים וסביבות</h2>
+        <p>
+          הנגישות נבדקה בדפדפנים עדכניים: Chrome, Firefox, Safari ו‑Edge. אנו
+          שואפים לתאימות רחבה, אולם ייתכנו הבדלים בין גרסאות ומכשירים.
+        </p>
+      </section>
+
+      <section id="means" aria-labelledby="means-h">
+        <h2 id="means-h">אמצעי נגישות הקיימים באתר</h2>
+        <ul>
+          <li>
+            תמיכה בדפדפנים מודרניים והטמעת סימנטיקה נכונה (כותרות, פסקאות,
+            רשימות).
+          </li>
+          <li>שפה ברורה ושימוש בפונטים קריאים עם ניגודיות מספקת.</li>
+          <li>מבנה ניווט פשוט עם תפריטים זמינים וברורים.</li>
+          <li>קישורים בעלי טקסט משמעותי המבהיר את יעד ההקלקה.</li>
+          <li>
+            קישור <em>דלג לתוכן</em> בתחילת הדף עבור דילוג ישיר לאזורי התוכן.
+          </li>
+          <li>טקסט חלופי (alt) לתמונות ואייקונים עבור קוראי מסך.</li>
+          <li>התאמה למסכים ברזולוציות שונות (רספונסיביות).</li>
+          <li>כפתורי עצירה/הפעלה לרכיבי מדיה, הימנעות מהבהובים וריצודים.</li>
+          <li>
+            הטמעת תפקידי
+            <abbr title="Accessible Rich Internet Applications">ARIA</abbr> לפי
+            הצורך עבור פרשנות טובה יותר לקוראי מסך.
+          </li>
+          <li>
+            הנגשה לתפריטים, טפסים, שדות, כותרות היררכיות, טאבים וחלונות קופצים.
+          </li>
+        </ul>
+      </section>
+
+      <section id="display" aria-labelledby="display-h">
+        <h2 id="display-h">שינוי תצוגה באתר</h2>
+        <ul>
+          <li>
+            הגדלה/הקטנה: שימוש ב‑<kbd>Ctrl</kbd> + <kbd>+</kbd> או
+            <kbd>Ctrl</kbd> + <kbd>-</kbd> (ב‑macOS: <kbd>⌘</kbd> +
+            <kbd>+</kbd> / <kbd>⌘</kbd> + <kbd>-</kbd>). גלילת גלגלת העכבר יחד
+            עם <kbd>Ctrl</kbd> תבצע זום מהיר.
+          </li>
+          <li>
+            שינוי גודל גופנים: ניתן לבצע דרך תפריט הנגישות באתר (אם קיים) או דרך
+            הגדרות הדפדפן.
+          </li>
+        </ul>
+      </section>
+
+      <section id="keyboard" aria-labelledby="keyboard-h">
+        <h2 id="keyboard-h">ניווט במקלדת</h2>
+        <ul>
+          <li>
+            מעבר בין אלמנטים: <kbd>Tab</kbd> קדימה, <kbd>Shift</kbd> +
+            <kbd>Tab</kbd> אחורה.
+          </li>
+          <li>
+            הפעלה/אישור: <kbd>Enter</kbd>. פתיחת תפריטי בחירה: <kbd>Alt</kbd> +
+            <kbd>↓</kbd> (בחלק מהדפדפנים).
+          </li>
+          <li>קיצורי דרך נוספים עשויים להיות זמינים בהתאם לרכיב.</li>
+        </ul>
+        <p class="note ok">
+          כל רכיב אינטראקטיבי מקבל סימון <em>focus</em> ברור בעת ניווט במקלדת.
+        </p>
+      </section>
+
+      <section id="assistive" aria-labelledby="assistive-h">
+        <h2 id="assistive-h">תאימות לטכנולוגיות מסייעות</h2>
+        <ul>
+          <li>תאימות בסיסית למגדילי תצוגה/זום של הדפדפן.</li>
+          <li>
+            תמיכה בכלי קריאה וקול (כולל יכולות זיהוי קולי של מערכות הפעלה, במידה
+            זמינה).
+          </li>
+          <li>בדיקות עם קוראי מסך נפוצים מתבצעות מעת לעת (NVDA/VoiceOver).</li>
+        </ul>
+      </section>
+
+      <section id="thirdparty" aria-labelledby="thirdparty-h">
+        <h2 id="thirdparty-h">רכיבי צד שלישי</h2>
+        <p>
+          באתר משולבים לעיתים רכיבי צד‑שלישי (Widgets). חלקם מסופקים על‑ידי
+          חברות חיצוניות ועלולים שלא לעמוד במלוא דרישות הנגישות. אנו עוקבים אחר
+          עדכוני הספקים ופועלים להפחתת פערים.
+        </p>
+        <div class="note">
+          <p><strong>Elfsight:</strong> הרכיב הבא משולב באתר:</p>
+          <pre
+            dir="ltr"
+            style="
+              white-space: pre-wrap;
+              word-break: break-word;
+              background: #f3f4f6;
+              border: 1px solid #e5e7eb;
+              padding: 0.65rem;
+              border-radius: 0.5rem;
+            "
+          >
+&lt;!-- Elfsight Widget --&gt;
+&lt;div class="elfsight-app-def148a6-ee23-4043-98d8-5d46cd765288" data-elfsight-app-lazy&gt;&lt;/div&gt;</pre
+          >
+          <p class="muted">
+            במקרה של חוסר נגישות ברכיב חיצוני זה, אנא הודיעו לנו ונציע חלופה
+            נגישה (למשל קישור טקסטואלי למידע/שירות).
+          </p>
+        </div>
+      </section>
+
+      <section id="limits" aria-labelledby="limits-h">
+        <h2 id="limits-h">סייגים לנגישות</h2>
+        <p>
+          הנהלת האתר פועלת כדי שכל דפי האתר יהיו נגישים. ייתכן שחלק מהדפים טרם
+          הונגשו או שאין פתרון טכנולוגי הולם בשלב זה. כמו כן, בתכנים/מודעות
+          חיצוניות שהוזנו על‑ידי מפרסמים ייתכן שההנגשה אינה מלאה.
+        </p>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-h">
+        <h2 id="contact-h">נתקלתם בבעיה? אנחנו כאן כדי לסייע</h2>
+        <p>
+          אם נתקלתם בקושי נגישות, נשמח לקבל פירוט (כתובת דף, תיאור הפעולה, סוג
+          דפדפן/מכשיר וכלי מסייע). אנו מתחייבים לטפל בפנייה ולספק מענה בהקדם.
+        </p>
+        <p class="muted">
+          נשאף לענות לפניות נגישות בתוך עד 7 ימי עסקים, ולספק פתרון או חלופה
+          סבירה בהקדם האפשרי.
+        </p>
+
+        <ul>
+          <li>
+            <strong>אחראי נגישות באתר:</strong>
+            <span class="warn">יובל בקי</span>
+          </li>
+          <li>
+            <strong>אימייל:</strong>
+            <a href="mailto:main.office@yaakovladder.com"
+              >main.office@yaakovladder.com</a
+            >
+          </li>
+          <li>
+            <strong>טלפון:</strong>
+            <a
+              dir="ltr"
+              href="tel:+972539870656"
+              aria-label="טלפון פלוס תשע שבע שתיים חמש שלוש תשע שמונה שבע אפס שש חמש שש"
+            >
+              053-987-0656
+            </a>
+          </li>
+        </ul>
+      </section>
+      <footer>
+        <p>© <span id="year"></span> Yaakov’s Ladder. כל הזכויות שמורות.</p>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      // אם תרצו לעדכן אוטומטית את תאריך ה"עודכן לאחרונה" בעת פריסה, החליפו את ה‑datetime כאן.
+    </script>
+  </body>
+</html>

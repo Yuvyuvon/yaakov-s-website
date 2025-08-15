@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const DEBUG_CAROUSEL = false; // set false to disable
 
+  // Navigation toggle (replace your current toggleNav/closeNav)
+  const toggle = document.getElementById("hamburger");
+  const nav = document.getElementById("sideNav");
+  const closeBtn = document.getElementById("closeNav");
+
   function setupCarousel(carouselId, dotContainerId, cardSelector) {
     const carousel = document.getElementById(carouselId);
     const dotContainer = document.getElementById(dotContainerId);
     const cards = carousel.querySelectorAll(cardSelector);
+
     if (!carousel || !dotContainer || !cards.length) return;
 
     // ─── lightweight debug util ───
@@ -211,11 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("GLightbox is not loaded. Ensure the script is included.");
   } else {
     attachLightbox(
-      "#carousel-1",
-      ".pictures-of-something__image img",
-      "gallery-1"
-    );
-    attachLightbox(
       "#carousel-2",
       ".pictures-of-center__image img",
       "gallery-2"
@@ -231,15 +232,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Navigation toggle
   // This function toggles the side navigation menu
-
-  function toggleNav() {
-    const nav = document.getElementById("sideNav");
-    nav.classList.add("open");
+  function openNav() {
+    if (!nav.hasAttribute("hidden")) return; // already open
+    nav.removeAttribute("hidden"); // must be visible to animate
+    // ensure a layout tick so the transition runs
+    nav.getBoundingClientRect();
+    nav.classList.add("open"); // slide in
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
   }
 
+  // Closing (with reliable fallback)
   function closeNav() {
-    const nav = document.getElementById("sideNav");
-    nav.classList.remove("open");
+    if (nav.hasAttribute("hidden")) return; // already closed
+    nav.classList.remove("open"); // start slide out
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // When animation ends, hide from tree
+    const end = () => {
+      nav.setAttribute("hidden", "");
+      toggle.focus(); // restore focus
+    };
+
+    // If motion is reduced, skip waiting
+    if (prefersReduced) {
+      end();
+      return;
+    }
+
+    // Fallback timer in case transitionend doesn't fire
+    const fallback = setTimeout(end, 400); // slightly > CSS duration
+
+    const onEnd = (e) => {
+      if (e.target !== nav || e.propertyName !== "transform") return;
+      clearTimeout(fallback);
+      nav.removeEventListener("transitionend", onEnd);
+      end();
+    };
+    nav.addEventListener("transitionend", onEnd, { once: true });
+  }
+
+  // Toggle
+  function toggleNav() {
+    nav.hasAttribute("hidden") ? openNav() : closeNav();
   }
 
   // Language switch
@@ -302,9 +342,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize both carousels
   setupCarousel("carousel-1", "dotContainer-1", ".pictures-of-something__card");
-  // setupCarousel("carousel-2", "dotContainer-2", ".pictures-of-center__card");
   setupCarousel("carousel-3", "dotContainer-3", ".Yaakovs-section__card");
-  document.getElementById("hamburger").addEventListener("click", toggleNav);
-  document.getElementById("closeNav").addEventListener("click", closeNav);
   document.getElementById("switchLang").addEventListener("click", switchLang);
+  toggle.addEventListener("click", toggleNav);
+  closeBtn.addEventListener("click", closeNav);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNav();
+  });
+
+  nav.addEventListener("click", (e) => {
+    const link = e.target.closest("a[href]");
+    if (link) closeNav();
+  });
 });

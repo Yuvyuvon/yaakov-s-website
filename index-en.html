@@ -128,31 +128,43 @@
   <body>
     <!-- Loader -->
     <section class="bg"></section>
-    <div class="loader">
+    <div class="loader" role="status" aria-live="polite" aria-label="Loader">
       <span class="loading-text">0%</span>
     </div>
     <!-- Loader -->
     <header>
       <div class="logo">
-        <img src="assets/Logo_YO_2.svg" alt="Logo" />
+        <a class="logo" href="/" aria-label="Home page – Yaakov’s Ladder">
+          <img src="assets/Logo_YO_2.svg" alt="Yaakov’s Ladder" />
+        </a>
       </div>
       <div class="logo-text">
         <p>Art, Creativity, and Therapy Center | Kfar Shamai</p>
       </div>
       <!-- Hamburger Icon -->
-      <div id="hamburger" class="hamburger">
-        <i class="fa-solid fa-bars"></i>
+      <div class="hamburger">
+        <button
+          id="hamburger"
+          class="hamburger"
+          aria-controls="sideNav"
+          aria-expanded="false"
+          aria-label="פתח תפריט"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
       </div>
 
       <!-- Side Navigation -->
-      <nav id="sideNav" class="side-nav">
-        <button class="close-nav" id="closeNav">
-          <i class="fa-solid fa-xmark"></i>
+      <nav id="sideNav" class="side-nav" aria-label="Main Menu" hidden>
+        <button class="close-nav" id="closeNav" aria-label="Close Menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
         </button>
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#">Terms and Conditions</a></li>
+          <li>
+            <a href="accessibility-statement.html">Accessibility statement</a>
+          </li>
+          <li><a href="Privacy-Policy.html">Privacy Policy</a></li>
+          <li><a href="Terms-and-Conditions.html">Terms and Conditions</a></li>
           <li>
             <button
               class="btn-switchlang"
@@ -160,8 +172,12 @@
               title="Switch to Hebrew"
               aria-label="Switch to Hebrew"
             >
-              <i id="i-switchlang" class="fa-solid fa-language"></i>
-              <span>HE</span>
+              <i
+                id="i-switchlang"
+                class="fa-solid fa-language"
+                aria-hidden="true"
+              ></i>
+              <span lang="he">HE</span>
             </button>
           </li>
         </ul>
@@ -177,7 +193,6 @@
         <div class="container-hero-image">
           <picture>
             <source type="image/avif" srcset="/assets/Hero-pc.avif" />
-            <!-- avif fallback goes in the <img> -->
             <img
               src="/assets/Hero-pc.avif"
               alt=""
@@ -186,7 +201,7 @@
             />
           </picture>
 
-          <div class="hero-image-text">
+          <div class="hero-image-text" dir="rtl">
             <span
               id="quote-font"
               lang="he"
@@ -215,12 +230,12 @@
               <span id="cta-btn-span">
                 Join us in bringing the center to life.
               </span>
-              <button class="btn-l" href="#final-cta">Donate Now</button>
+              <a class="btn-l" href="#final-cta">Donate Now</a>
             </div>
           </div>
         </article>
         <div class="cta">
-          <button class="btn-xl" href="#final-cta">Donate Now</button>
+          <a class="btn-xl" href="#final-cta">Donate Now</a>
         </div>
       </section>
       <section class="about-center-section">
@@ -243,20 +258,36 @@
           </div>
         </article>
         <!-- ✦ ONE wrapper for everything ✦ -->
-        <div class="pictures-of-something" id="gallery-1">
+        <div
+          class="pictures-of-something"
+          id="gallery-1"
+          role="region"
+          aria-roledescription="Carousel"
+          aria-label="Gallery of the Center's Images"
+          aria-live="polite"
+        >
           <!-- ← arrow (desktop-only, floats over the rail) -->
-          <button class="pictures-nav prev" aria-label="Previous slide">
+          <button
+            class="pictures-nav prev"
+            aria-label="Previous Slide"
+            aria-controls="carousel-1"
+            aria-disabled="true"
+          >
             ‹
           </button>
 
           <!-- ─── horizontal rail ─── -->
-          <div class="pictures-of-something__container" id="carousel-1">
+          <div
+            class="pictures-of-something__container"
+            id="carousel-1"
+            tabindex="0"
+          >
             <div class="pictures-of-something__card">
               <div class="pictures-of-something__image">
                 <img
                   src="./assets/12.avif"
                   data-full="./assets/12.avif"
-                  alt="Picture 1"
+                  alt="People looking at art"
                   loading="lazy"
                 />
               </div>
@@ -267,7 +298,7 @@
                 <img
                   src="./assets/13.avif"
                   data-full="./assets/13.avif"
-                  alt="Picture 2"
+                  alt="People sitting in a classroom"
                   loading="lazy"
                 />
               </div>
@@ -278,7 +309,7 @@
                 <img
                   src="./assets/14.avif"
                   data-full="./assets/14.avif"
-                  alt="Picture 3"
+                  alt="People in a classroom with desks doing art"
                   loading="lazy"
                 />
               </div>
@@ -289,7 +320,7 @@
                 <img
                   src="./assets/15.avif"
                   data-full="./assets/15.avif"
-                  alt="Picture 4"
+                  alt="The lecturer explains a topic"
                   loading="lazy"
                 />
               </div>
@@ -300,10 +331,23 @@
           <!-- ──────────────────────── -->
 
           <!-- → arrow -->
-          <button class="pictures-nav next" aria-label="Next slide">›</button>
+          <button
+            class="pictures-nav next"
+            aria-label="Next Slide"
+            aria-controls="carousel-1"
+          >
+            ›
+          </button>
+
+          <!-- ---------------------------------------------------------------------- -->
 
           <!-- dots -->
-          <div class="dot-container" id="dotContainer-1"></div>
+          <div
+            class="dot-container"
+            id="dotContainer-1"
+            role="tablist"
+            aria-label="Gallery of the Center's Images"
+          ></div>
         </div>
       </section>
       <section class="about-center-section-expandad">
@@ -337,7 +381,10 @@
               </a>
             </article>
             <div class="googels-image">
-              <img src="assets/goggels.avif" alt="goggels" />
+              <img
+                src="assets/goggels.avif"
+                alt="Goggles that Yaakov created during his studies at Shenkar, serving as inspiration for the design of the space"
+              />
             </div>
           </div>
           <div class="bottom-section">
@@ -345,7 +392,10 @@
               <div class="pictures-of-center__container" id="carousel-2">
                 <div class="pictures-of-center__card">
                   <div class="pictures-of-center__image">
-                    <img src="assets/view-from-top.avif" alt="Picture 1" />
+                    <img
+                      src="assets/view-from-top.avif"
+                      alt="Bird's-eye view of the center the architecture created using the goggles Yaakov made"
+                    />
                   </div>
                 </div>
               </div>
@@ -366,7 +416,7 @@
           </div>
           <div class="cta-container-expandad">
             <span>Join us in keeping Yaakov’s dream alive</span>
-            <button class="btn">Donate Now</button>
+            <a class="btn" href="#final-cta" role="button">Donate Now</a>
           </div>
         </div>
       </section>
@@ -392,16 +442,16 @@
         </article>
         <div class="partners_container-logo-grid">
           <div class="grid__item">
-            <img src="assets/Logo marom golan 2.avif" alt="Image-1" />
+            <img src="assets/Logo marom golan 2.avif" alt="Logo Marom Golan" />
           </div>
           <div class="grid__item">
-            <img src="assets/logo _itizk&alon.avif" alt="Image-2" />
+            <img src="assets/logo _itizk&alon.avif" alt="Logo Itzik & Alon" />
           </div>
           <div class="grid__item">
-            <img src="assets/dor_azulay.avif" alt="Image-3" />
+            <img src="assets/dor_azulay.avif" alt="Logo Dor Azulay" />
           </div>
           <div class="grid__item">
-            <img src="assets/Shenkar-modified.avif" alt="Image-4" />
+            <img src="assets/Shenkar-modified.avif" alt="Logo Shenkar" />
           </div>
         </div>
       </section>
@@ -409,17 +459,16 @@
         <h2>Yaakov Ozeri</h2>
         <div class="text-wrapper">
           <div class="image_yaakov">
-            <img src="assets/yaakov__image.avif" alt="face" />
+            <img src="assets/yaakov__image.avif" alt="Yaakov Ozeri z’l Face" />
           </div>
           <div class="text-container">
             <p>
-              From a young age, Yaakov Ozeri, of blessed memory, was a creator,
-              a designer, and a soul deeply connected to art. As an adult, he
-              studied Industrial Design at Shenkar College and saw art as a
-              universal language—open and connecting for everyone, at every age
-              and place. Yaakov believed deeply in the power of creativity to
-              connect, to heal, and to bring change—and lived by this belief in
-              every step he took.
+              Since his childhood Yaakov Ozeri z’l was a creator, designer and a
+              man with art flowing in his veins. In his adulthood, he studied
+              Industrial Design in Shenkar University Tel Aviv, And saw in arts
+              an open language that fosters bonding for every person at any age
+              and place. He believed in using his creative force to connect,
+              heal and transform - and carried that belief with him everywhere.
             </p>
           </div>
         </div>
@@ -431,32 +480,50 @@
           <div class="Yaakovs-section__container-carousel" id="carousel-3">
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/work-1.avif" alt="Picture 1" />
+                <img
+                  src="assets/work-1.avif"
+                  alt="Hand made wooden model of a tank by Yaakov Ozeri z’l"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/work-2.avif" alt="Picture 2" />
+                <img
+                  src="assets/work-2.avif"
+                  alt="Hand made wooden model of an amorphous sculpture by Yaakov Ozeri z’l"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/8.avif" alt="Picture 3" />
+                <img
+                  src="assets/8.avif"
+                  alt="Hand made wooden model of English letters by Yaakov Ozeri z’l"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/9.avif" alt="Picture 4" />
+                <img
+                  src="assets/9.avif"
+                  alt="Hand drawn graphic illustration by Yaakov Ozeri z’l"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/10.avif" alt="Picture 5" />
+                <img
+                  src="assets/10.avif"
+                  alt="Hand made wooden model and collage by Yaakov Ozeri z’l"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/11.avif" alt="Picture 6" />
+                <img
+                  src="assets/11.avif"
+                  alt="Hand drawn graphic illustration by Yaakov Ozeri z’l"
+                />
               </div>
             </div>
             <!-- Add more cards -->
@@ -519,17 +586,14 @@
             <p>
               <span>Phone:</span>
               <!-- E.164 format for dial links -->
-              <a href="tel:+972528312729">+972-52-831-2729</a>
+              <a dir="ltr" href="tel:+972528312729">+972-52-831-2729</a>
             </p>
 
             <strong>Donation Details:</strong>
             <p>Center for Art in Memory of Yaakov Ozeri</p>
             <p>Bank Hapoalim, Branch 714</p>
             <p>Account Number: 193943</p>
-            <p>
-              IBAN:<br />
-              IL320127140000000193943
-            </p>
+            <p>IBAN:<br /><bdi dir="ltr">IL320127140000000193943</bdi></p>
           </div>
         </div>
 
@@ -540,15 +604,25 @@
             action="https://formsubmit.co/657eb66c264d57c9d562d52035b78818"
             method="POST"
             accept-charset="UTF-8"
+            dir="ltr"
+            novalidate
+            aria-describedby="form-status"
           >
+            <div
+              id="form-status"
+              class="visually-hidden"
+              aria-live="polite"
+            ></div>
+
+            <!-- Fields -->
             <label for="name">Full Name</label>
             <input
               id="name"
               type="text"
               name="name"
               autocomplete="name"
-              placeholder="Enter your full name"
               required
+              aria-invalid="false"
             />
 
             <label for="email">Email</label>
@@ -559,8 +633,8 @@
               dir="ltr"
               inputmode="email"
               autocomplete="email"
-              placeholder="Enter your email"
               required
+              aria-invalid="false"
             />
 
             <label for="message">Message</label>
@@ -568,23 +642,23 @@
               id="message"
               name="message"
               rows="5"
-              placeholder="Enter your message"
               required
+              aria-invalid="false"
             ></textarea>
 
             <!-- FormSubmit options -->
             <input
               type="hidden"
               name="_subject"
-              value="New inquiry from yaakovladder.com"
+              value="New Inquiry from the Website – Dream Like Yaakov"
             />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="true" />
-            <!-- TODO: replace with your real thank-you URL -->
+            <!-- TODO: change to your real thank-you page URL -->
             <input
               type="hidden"
               name="_next"
-              value="https://yaakovladder.com/thanks.html"
+              value="https://yaakovladder.com"
             />
 
             <!-- Honeypot (anti-spam) -->
@@ -594,7 +668,7 @@
             <input
               type="hidden"
               name="_autoresponse"
-              value="Thanks! Your message was received. We'll get back to you shortly."
+              value="Hello, your inquiry has been received and we will get back to you soon. Thank you!"
             />
 
             <div class="form-footer">

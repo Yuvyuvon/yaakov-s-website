@@ -128,40 +128,54 @@
   <body>
     <!-- Loader -->
     <section class="bg"></section>
-    <div class="loader">
+    <div class="loader" role="status" aria-live="polite" aria-label="טוען">
       <span class="loading-text">0%</span>
     </div>
     <!-- Loader -->
     <header>
       <div class="logo">
-        <img src="assets/Logo_YO_2.svg" alt="Logo" />
+        <a class="logo" href="/" aria-label="דף הבית – Yaakov’s Ladder">
+          <img src="assets/Logo_YO_2.svg" alt="Yaakov’s Ladder" />
+        </a>
       </div>
       <div class="logo-text">
         <p>מרכז לאמנות, יצירה ותרפיה | כפר שמאי</p>
       </div>
       <!-- Hamburger Icon -->
-      <div id="hamburger" class="hamburger">
-        <i class="fa-solid fa-bars"></i>
+      <div class="hamburger">
+        <button
+          id="hamburger"
+          class="hamburger"
+          aria-controls="sideNav"
+          aria-expanded="false"
+          aria-label="פתח תפריט"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
       </div>
 
       <!-- Side Navigation -->
-      <nav id="sideNav" class="side-nav">
-        <button class="close-nav" id="closeNav">
-          <i class="fa-solid fa-xmark"></i>
+      <nav id="sideNav" class="side-nav" aria-label="תפריט ראשי" hidden>
+        <button class="close-nav" id="closeNav" aria-label="סגור תפריט">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
         </button>
         <ul>
-          <li><a href="#hero">דף הבית</a></li>
-          <li><a href="#about">אודות</a></li>
-          <li><a href="#">תנאים והגבלות</a></li>
+          <li><a href="accessibility-statement.html">הצהרת נגישות</a></li>
+          <li><a href="Privacy-Policy.html">מדיניות פרטיות</a></li>
+          <li><a href="Terms-and-Conditions.html">תנאים והגבלות</a></li>
           <li>
             <button
               class="btn-switchlang"
               id="switchLang"
-              title="Switch to Hebrew"
-              aria-label="Switch to Hebrew"
+              title="החלף לאנגלית"
+              aria-label="החלף לאנגלית"
             >
-              <i id="i-switchlang" class="fa-solid fa-language"></i>
-              <span>EN</span>
+              <i
+                id="i-switchlang"
+                class="fa-solid fa-language"
+                aria-hidden="true"
+              ></i>
+              <span lang="en">EN</span>
             </button>
           </li>
         </ul>
@@ -172,15 +186,14 @@
       class="elfsight-app-def148a6-ee23-4043-98d8-5d46cd765288"
       data-elfsight-app-lazy
     ></div>
-    <main>
+    <main id="main">
       <section class="hero-section">
         <div class="container-hero-image">
           <picture>
             <source type="image/avif" srcset="/assets/Hero-pc.avif" />
-            <!-- PNG fallback goes in the <img> -->
             <img
               src="/assets/Hero-pc.avif"
-              alt=""
+              alt="סולם יעקב"
               fetchpriority="high"
               decoding="async"
             />
@@ -208,12 +221,12 @@
             </div>
             <div class="cta-btn">
               <span id="cta-btn-span">הצטרפו אלינו בהקמת המרכז</span>
-              <button class="btn-l" href="#final-cta">לתרומה עכשיו</button>
+              <a class="btn-l" href="#final-cta"> לתרומה עכשיו </a>
             </div>
           </div>
         </article>
         <div class="cta">
-          <button class="btn-xl" href="#final-cta">לתרומה עכשיו</button>
+          <a class="btn-xl" href="#final-cta"> לתרומה עכשיו </a>
         </div>
       </section>
       <section class="about-center-section">
@@ -222,32 +235,49 @@
             <h2>בית ליצירה, תרפיה וקהילה</h2>
             <div class="paragraph-center">
               <p>
-                המרכז יפעל לקידום תרבות והאמנות בצפון הארץ, ויהווה מרחב פתוח
+                המרכז יפעל לקידום תרבות והאמנות בצפון הארץ ויהווה מרחב פתוח
                 ונגיש לכל גיל - ליצור, ללמוד, להתחבר ולצמוח דרך אמנות.
               </p>
               <p>
                 במקום יתקיימו סדנאות אמנות, קבוצות תרפיה, תערוכות, הרצאות
-                והופעות. המבנה הייחודי והשטח הפתוח סביבו יעניקו מרחב חוויתי
-                .ומקצועי המאפשר יצירה, חיבור ושיח.
+                והופעות. <br />
+                המבנה הייחודי והשטח הפתוח סביבו יעניקו מרחב חוויתי ומקצועי
+                המאפשר יצירה, חיבור ושיח.
               </p>
             </div>
           </div>
         </article>
         <!-- ✦ ONE wrapper for everything ✦ -->
-        <div class="pictures-of-something" id="gallery-1">
+        <div
+          class="pictures-of-something"
+          id="gallery-1"
+          role="region"
+          aria-roledescription="קרוסלה"
+          aria-label="גלריית תמונות המרכז"
+          aria-live="polite"
+        >
           <!-- ← arrow (desktop-only, floats over the rail) -->
-          <button class="pictures-nav prev" aria-label="Previous slide">
+          <button
+            class="pictures-nav prev"
+            aria-label="שקופית קודמת"
+            aria-controls="carousel-1"
+            aria-disabled="true"
+          >
             ‹
           </button>
 
           <!-- ─── horizontal rail ─── -->
-          <div class="pictures-of-something__container" id="carousel-1">
+          <div
+            class="pictures-of-something__container"
+            id="carousel-1"
+            tabindex="0"
+          >
             <div class="pictures-of-something__card">
               <div class="pictures-of-something__image">
                 <img
                   src="./assets/12.avif"
                   data-full="./assets/12.avif"
-                  alt="Picture 1"
+                  alt="אנשים מסתכלים על אמנות"
                   loading="lazy"
                 />
               </div>
@@ -258,7 +288,7 @@
                 <img
                   src="./assets/13.avif"
                   data-full="./assets/13.avif"
-                  alt="Picture 2"
+                  alt="יושבים בכיתה"
                   loading="lazy"
                 />
               </div>
@@ -269,7 +299,7 @@
                 <img
                   src="./assets/14.avif"
                   data-full="./assets/14.avif"
-                  alt="Picture 3"
+                  alt="אנשים בכיתה עם שולחנות עושים אמנות"
                   loading="lazy"
                 />
               </div>
@@ -280,7 +310,7 @@
                 <img
                   src="./assets/15.avif"
                   data-full="./assets/15.avif"
-                  alt="Picture 4"
+                  alt="המרצה מסביר על נושא"
                   loading="lazy"
                 />
               </div>
@@ -291,10 +321,23 @@
           <!-- ──────────────────────── -->
 
           <!-- → arrow -->
-          <button class="pictures-nav next" aria-label="Next slide">›</button>
+          <button
+            class="pictures-nav next"
+            aria-label="שקופית הבאה"
+            aria-controls="carousel-1"
+          >
+            ›
+          </button>
+
+          <!-- ---------------------------------------------------------------------- -->
 
           <!-- dots -->
-          <div class="dot-container" id="dotContainer-1"></div>
+          <div
+            class="dot-container"
+            id="dotContainer-1"
+            role="tablist"
+            aria-label="בחירת שקופית"
+          ></div>
         </div>
       </section>
       <section class="about-center-section-expandad">
@@ -303,7 +346,7 @@
             <h2 id="header-about">רואים רחוק רואים שקוף</h2>
             <span>
               עיצוב המרכז שואב השראה ממשקפת שיצר יעקב בלימודיו - סמל לראייה
-              רחוקה לאופק, וחזון.
+              רחוקה לאופק וחזון.
             </span>
           </div>
           <div class="top-section">
@@ -317,14 +360,17 @@
                 href="https://panoraven.com/en/embed/CNO7H8B1gn"
                 target="_blank"
                 rel="noopener"
-                aria-label="View 360° Renderings of the Center"
-                title="View 360° Renderings of the Center"
+                aria-label="תצוגה מקדימה 360° של המרכז"
+                title="תצוגה מקדימה 360° של המרכז"
                 class="center-img-link"
                 >לצפייה בהדמיות 360° של המרכז</a
               >
             </article>
             <div class="googels-image">
-              <img src="assets/goggels.avif" alt="goggels" />
+              <img
+                src="assets/goggels.avif"
+                alt="משקפת שיעקב ייצר בזמן לימודיו בשנקר תהווה השראה לתכנון המקום"
+              />
             </div>
           </div>
           <div class="bottom-section">
@@ -332,7 +378,10 @@
               <div class="pictures-of-center__container" id="carousel-2">
                 <div class="pictures-of-center__card">
                   <div class="pictures-of-center__image">
-                    <img src="assets/view-from-top.avif" alt="Picture 1" />
+                    <img
+                      src="assets/view-from-top.avif"
+                      alt="תצפית מלמעלה שייצר האדריכל בעזרת המשקפת שיעקב יצר"
+                    />
                   </div>
                 </div>
               </div>
@@ -351,7 +400,7 @@
           </div>
           <div class="cta-container-expandad">
             <span>יעקב חי דרך יצירה - בואו לצעוד איתנו בדרכו</span>
-            <button class="btn" href="#final-cta">לתרומה עכשיו</button>
+            <a class="btn" href="#final-cta" role="button"> לתרומה עכשיו </a>
           </div>
         </div>
       </section>
@@ -375,23 +424,23 @@
         </article>
         <div class="partners_container-logo-grid">
           <div class="grid__item">
-            <img src="assets/Logo marom golan 2.avif" alt="Image-1" />
+            <img src="assets/Logo marom golan 2.avif" alt="לוגו מרום גולן" />
           </div>
           <div class="grid__item">
-            <img src="assets/logo _itizk&alon.avif" alt="Image-2" />
+            <img src="assets/logo _itizk&alon.avif" alt="לוגו איציק ואלון" />
           </div>
           <div class="grid__item">
-            <img src="assets/dor_azulay.avif" alt="Image-3" />
+            <img src="assets/dor_azulay.avif" alt="לוגו דור אזולאי" />
           </div>
           <div class="grid__item">
-            <img src="assets/Shenkar-modified.avif" alt="Image-4" />
+            <img src="assets/Shenkar-modified.avif" alt="לוגו שנקר" />
           </div>
         </div>
       </section>
       <section class="Yaakovs-section__container">
         <div class="text-wrapper">
           <div class="image_yaakov">
-            <img src="assets/yaakov__image.avif" alt="face" />
+            <img src="assets/yaakov__image.avif" alt="פנים של יעקב עוזרי ז״ל" />
           </div>
           <div class="text-container">
             <h2>יעקב עוזרי</h2>
@@ -405,43 +454,59 @@
         </div>
         <span>מיצירותיו של יעקב</span>
         <div class="pictures-of-something" id="gallery-3">
-          <button class="pictures-nav prev" aria-label="Previous slide">
-            ‹
-          </button>
+          <button class="pictures-nav prev" aria-label="שקופית קודמת">‹</button>
           <div class="Yaakovs-section__container-carousel" id="carousel-3">
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/work-1.avif" alt="Picture 1" />
+                <img
+                  src="assets/work-1.avif"
+                  alt="עבודה הנדסית מעץ דגם של טנק יעקב עוזרי ז״ל"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/work-2.avif" alt="Picture 2" />
+                <img
+                  src="assets/work-2.avif"
+                  alt="עבודה הנדסית מעץ פסל אמורפי יעקב עוזרי ז״ל"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/8.avif" alt="Picture 3" />
+                <img
+                  src="assets/8.avif"
+                  alt="עבודה הנדסית מעץ אותיות בשפה האנגלית יעקב עוזרי ז״ל"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/9.avif" alt="Picture 4" />
+                <img
+                  src="assets/9.avif"
+                  alt="ציור גרפי בעט של יעקב עוזרי ז״ל"
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/10.avif" alt="Picture 5" />
+                <img
+                  src="assets/10.avif"
+                  alt="מערך הנדסי וקולאז יעקב עוזרי ז״ל "
+                />
               </div>
             </div>
             <div class="Yaakovs-section__card">
               <div class="Yaakovs-section__image">
-                <img src="assets/11.avif" alt="Picture 6" />
+                <img
+                  src="assets/11.avif"
+                  alt="ציור גרפי של עורב יעקב עוזרי ז״ל"
+                />
               </div>
             </div>
             <!-- Add more cards -->
           </div>
-          <button class="pictures-nav next" aria-label="Next slide">›</button>
+          <button class="pictures-nav next" aria-label="שקופית הבאה">›</button>
 
           <div class="dot-container" id="dotContainer-3"></div>
         </div>
@@ -494,17 +559,14 @@
             <p>
               <span>טלפון:</span>
               <!-- E.164 format for dial links -->
-              <a href="tel:+972528312729">972-52-831-2729+</a>
+              <a dir="ltr" href="tel:+972528312729">+972-52-831-2729</a>
             </p>
 
             <strong>חשבון בנק לתרומות</strong>
             <p>מרכז לאמנות ע״ש יעקב עוזרי</p>
             <p>בנק פועלים, סניף 714</p>
             <p>מס' חשבון 193943</p>
-            <p>
-              IBAN:<br />
-              IL320127140000000193943
-            </p>
+            <p>IBAN:<br /><bdi dir="ltr">IL320127140000000193943</bdi></p>
           </div>
         </div>
 
@@ -516,7 +578,15 @@
             method="POST"
             accept-charset="UTF-8"
             dir="rtl"
+            novalidate
+            aria-describedby="form-status"
           >
+            <div
+              id="form-status"
+              class="visually-hidden"
+              aria-live="polite"
+            ></div>
+
             <!-- Fields -->
             <label for="name">שם</label>
             <input
@@ -525,6 +595,7 @@
               name="name"
               autocomplete="name"
               required
+              aria-invalid="false"
             />
 
             <label for="email">אימייל</label>
@@ -536,10 +607,17 @@
               inputmode="email"
               autocomplete="email"
               required
+              aria-invalid="false"
             />
 
             <label for="message">הודעה</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              aria-invalid="false"
+            ></textarea>
 
             <!-- FormSubmit options -->
             <input
@@ -553,7 +631,7 @@
             <input
               type="hidden"
               name="_next"
-              value="https://yaakovladder.com/thanks.html"
+              value="https://yaakovladder.com"
             />
 
             <!-- Honeypot (anti-spam) -->
