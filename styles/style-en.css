@@ -30,6 +30,53 @@ body {
   --container-padding-pc: 56px 32px;
 }
 
+/* 1.  Make the overlay itself LTR so GLightbox math stays simple */
+.glightbox-container {
+  direction: ltr !important;
+}
+
+/* 2.  Arrow placement (logical insets work in both LTR / RTL) */
+.glightbox-container .gprev {
+  inset-inline-start: 1rem; /* ← prev at the start edge  */
+  inset-inline-end: auto;
+}
+.glightbox-container .gnext {
+  inset-inline-end: 1rem; /* next → at the end edge    */
+  inset-inline-start: auto;
+}
+
+/* 3.  Ensure arrows are *not* flipped in RTL */
+[dir="rtl"] .glightbox-container .gprev svg,
+[dir="rtl"] .glightbox-container .gnext svg {
+  transform: none !important;
+}
+
+/* 4.  Keep media centered without forcing full-viewport sizing */
+.glightbox-container .gslide-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.glightbox-container .gslide-image img {
+  max-width: 96vw;
+  max-height: 92vh;
+  will-change: transform; /* smoother GPU compositing */
+}
+
+/* 5.  Prevent page behind the overlay from scrolling */
+body.glightbox-open {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+/* 6.  Safety cap: never exceed container size */
+.glightbox-container .ginner-container,
+.glightbox-container .gslide-media,
+.glightbox-container .gslide-image img {
+  max-width: 100%;
+  height: 85%;
+}
+
 .h2-desktop {
   font-size: 3.1875rem;
   width: 70%;
@@ -172,6 +219,11 @@ body {
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   padding: 2rem;
+  will-change: transform;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 .side-nav.open {
@@ -372,25 +424,20 @@ header {
   justify-content: center;
   align-items: center;
   padding: 12px 26px;
-
   color: #935e20;
   font-family: Heebo, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   font-size: 36px;
   font-weight: 500;
   line-height: 1; /* safer than 100% */
-
   border-radius: 10px;
   border: 2px solid #935e20;
   background: rgba(240, 238, 235, 0.6);
-
   text-decoration: none; /* kill underline */
   cursor: pointer;
-
   /* center it */
   margin-inline: auto;
   margin-block-start: 16px;
   margin-inline-start: 16px; /* instead of right: 12px */
-
   /* remove the risky offsets */
   position: static; /* ← or simply remove right/top/position */
 }
@@ -476,7 +523,7 @@ header {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -929,7 +976,7 @@ div.header-wrapper span {
   direction: ltr;
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   gap: 1rem;
   scrollbar-width: none; /* Firefox */

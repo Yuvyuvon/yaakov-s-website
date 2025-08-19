@@ -752,7 +752,7 @@
     direction: ltr;
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x proximity;
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 1rem;
     scrollbar-width: none; /* Firefox */

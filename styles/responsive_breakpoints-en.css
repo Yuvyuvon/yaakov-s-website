@@ -87,6 +87,7 @@
   .btn-xl {
     font-size: 1.75rem;
     padding: 12px 20px;
+    text-decoration: none;
   }
 }
 
@@ -134,8 +135,10 @@
   .hamburger {
     cursor: pointer;
     position: relative;
-    right: auto;
+    left: auto;
     top: auto;
+    margin-left: 5px;
+    border: none;
   }
 
   header p {
@@ -791,7 +794,7 @@
     direction: ltr;
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x proximity;
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 1rem;
     scrollbar-width: none; /* Firefox */
