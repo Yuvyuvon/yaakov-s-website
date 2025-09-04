@@ -607,15 +607,49 @@
           </article>
           <div class="btn-wrapper">
             <span>הצטרפו אלינו בהגשמת החלום</span>
-            <a
-              class="btn"
-              href="https://meshulam.co.il/s/a7c70787-5416-623a-aa9d-36e517ef7a2d"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="תרומה עכשיו למרכז לאמנות, יצירה ותרפיה בכפר שמאי"
-            >
-              תרומה עכשיו
-            </a>
+            
+            <!-- Payment Method Toggle -->
+            <div class="payment-toggle">
+              <button type="button" id="meshulam-btn" class="payment-option active" onclick="showPaymentMethod('meshulam')">
+                Meshulam
+              </button>
+              <button type="button" id="grow-btn" class="payment-option" onclick="showPaymentMethod('grow')">
+                Grow (בדיקה)
+              </button>
+            </div>
+
+            <!-- Meshulam Payment Method -->
+            <div id="meshulam-payment" class="payment-method active">
+              <a
+                class="btn"
+                href="https://meshulam.co.il/s/a7c70787-5416-623a-aa9d-36e517ef7a2d"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="תרומה עכשיו למרכז לאמנות, יצירה ותרפיה בכפר שמאי"
+              >
+                תרומה עכשיו
+              </a>
+            </div>
+
+            <!-- Grow Payment Method (Testing) -->
+            <div id="grow-payment" class="payment-method">
+              <div class="grow-iframe-container">
+                <iframe 
+                  id="grow-payment-iframe"
+                  src="about:blank"
+                  width="100%"
+                  height="600"
+                  frameborder="0"
+                  style="border: 1px solid #ddd; border-radius: 8px;"
+                  title="Grow Payment Form"
+                  allow="payment">
+                </iframe>
+                <p class="testing-note">
+                  זוהי גרסת בדיקה של Grow Payments.<br>
+                  תומך ב-Apple Pay ו-Google Pay.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -751,5 +785,34 @@
         </div>
       </div>
     </footer>
+    
+    <script>
+      function showPaymentMethod(method) {
+        // Hide all payment methods
+        document.getElementById('meshulam-payment').classList.remove('active');
+        document.getElementById('grow-payment').classList.remove('active');
+        
+        // Remove active class from all buttons
+        document.getElementById('meshulam-btn').classList.remove('active');
+        document.getElementById('grow-btn').classList.remove('active');
+        
+        // Show selected payment method and activate button
+        if (method === 'meshulam') {
+          document.getElementById('meshulam-payment').classList.add('active');
+          document.getElementById('meshulam-btn').classList.add('active');
+        } else if (method === 'grow') {
+          document.getElementById('grow-payment').classList.add('active');
+          document.getElementById('grow-btn').classList.add('active');
+          
+          // Load Grow iframe when selected (replace with actual Grow payment URL)
+          const iframe = document.getElementById('grow-payment-iframe');
+          if (iframe.src === 'about:blank') {
+            // TODO: Replace with actual Grow payment iframe URL when available
+            // iframe.src = 'https://your-grow-payment-url.com';
+            console.log('Grow payment method selected - iframe ready for Grow URL');
+          }
+        }
+      }
+    </script>
   </body>
 </html>
