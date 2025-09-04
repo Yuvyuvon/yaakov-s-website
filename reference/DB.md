@@ -1,6 +1,24 @@
-// MongoDB Schema for Donation Website System
+# 🏛️ MongoDB Donation System Schema
 
-// 1. Ambassadors Collection
+> **Database schema for the Yaakov Memorial Donation Website System**
+
+---
+
+## 📋 Collections Overview
+
+| Collection | Purpose | Key Features |
+|------------|---------|--------------|
+| `ambassadors` | Donation campaign managers | UTM tracking, goals, performance metrics |
+| `partners` | Donors/Contributors | Privacy controls, donation history |
+| `donations` | Individual donation records | Payment tracking, attribution |
+
+---
+
+## 👥 Ambassadors Collection
+
+**Purpose**: Track individuals who run donation campaigns for the memorial center
+
+```javascript
 db.createCollection("ambassadors", {
   validator: {
     $jsonSchema: {
@@ -48,8 +66,15 @@ db.createCollection("ambassadors", {
     }
   }
 });
+```
 
-// 2. Partners (Donators) Collection
+---
+
+## 🤝 Partners (Donors) Collection
+
+**Purpose**: Store information about individuals and organizations who donate to the memorial center
+
+```javascript
 db.createCollection("partners", {
   validator: {
     $jsonSchema: {
@@ -102,8 +127,15 @@ db.createCollection("partners", {
     }
   }
 });
+```
 
-// 3. Donations Collection (to track individual donations)
+---
+
+## 💰 Donations Collection
+
+**Purpose**: Track individual donation transactions and link them to donors and ambassadors
+
+```javascript
 db.createCollection("donations", {
   validator: {
     $jsonSchema: {
@@ -160,33 +192,68 @@ db.createCollection("donations", {
     }
   }
 });
+```
 
-// Create Indexes for Performance
+---
 
-// Ambassadors indexes
-db.ambassadors.createIndex({ "utm": 1 }, { unique: true }); // UTM must be unique
+## 🚀 Database Indexes
+
+**Performance optimization through strategic indexing**
+
+### 👥 Ambassadors Indexes
+```javascript
+// UTM codes must be unique across all ambassadors
+db.ambassadors.createIndex({ "utm": 1 }, { unique: true });
+
+// Search by contact information
 db.ambassadors.createIndex({ "phoneNumber": 1 });
 db.ambassadors.createIndex({ "lastName": 1, "firstName": 1 });
-db.ambassadors.createIndex({ "createdAt": 1 });
 
-// Partners indexes
+// Time-based queries
+db.ambassadors.createIndex({ "createdAt": 1 });
+```
+
+### 🤝 Partners Indexes
+```javascript
+// Name-based searches
 db.partners.createIndex({ "lastName": 1, "firstName": 1 });
+
+// Donation activity tracking
 db.partners.createIndex({ "lastDonated": -1 }); // Most recent first
 db.partners.createIndex({ "totalDonationSum": -1 }); // Highest donors first
-db.partners.createIndex({ "secretDonation": 1 });
-db.partners.createIndex({ "email": 1 }, { unique: true, sparse: true }); // Email unique if provided
 
-// Donations indexes
+// Privacy filtering
+db.partners.createIndex({ "secretDonation": 1 });
+
+// Email must be unique when provided
+db.partners.createIndex({ "email": 1 }, { unique: true, sparse: true });
+```
+
+### 💰 Donations Indexes
+```javascript
+// Relationship queries
 db.donations.createIndex({ "partnerId": 1 });
 db.donations.createIndex({ "ambassadorId": 1 });
+
+// Time-based sorting
 db.donations.createIndex({ "donationDate": -1 }); // Most recent first
+
+// UTM tracking
 db.donations.createIndex({ "utm": 1 });
-db.donations.createIndex({ "partnerId": 1, "donationDate": -1 }); // Compound index for partner's donation history
-db.donations.createIndex({ "ambassadorId": 1, "donationDate": -1 }); // Compound index for ambassador's recruited donations
 
-// Sample Data Insertion
+// Compound indexes for common query patterns
+db.donations.createIndex({ "partnerId": 1, "donationDate": -1 });
+db.donations.createIndex({ "ambassadorId": 1, "donationDate": -1 });
+```
 
-// Insert sample ambassador
+---
+
+## 🗃️ Sample Data
+
+**Example records for testing and development**
+
+### 👨‍💼 Sample Ambassador
+```javascript
 db.ambassadors.insertOne({
   firstName: "David",
   lastName: "Cohen",
@@ -197,8 +264,10 @@ db.ambassadors.insertOne({
   updatedAt: new Date(),
   isActive: true
 });
+```
 
-// Insert sample partner
+### 👤 Sample Public Donor
+```javascript
 db.partners.insertOne({
   firstName: "Sarah",
   lastName: "Levy",
@@ -210,8 +279,10 @@ db.partners.insertOne({
   email: "sarah.levy@example.com",
   phoneNumber: "+972-50-987-6543"
 });
+```
 
-// Insert sample secret donor
+### 🕶️ Sample Anonymous Donor
+```javascript
 db.partners.insertOne({
   firstName: "Anonymous",
   lastName: "Donor",
@@ -221,10 +292,16 @@ db.partners.insertOne({
   createdAt: new Date("2025-03-15"),
   updatedAt: new Date()
 });
+```
 
-// Useful Aggregation Queries
+---
 
-// 1. Get ambassador performance with total donations recruited
+## 📊 Aggregation Queries
+
+**Powerful MongoDB queries for analytics and reporting**
+
+### 🏆 Ambassador Performance Report
+```javascript
 const ambassadorPerformance = [
   {
     $lookup: {
@@ -259,7 +336,11 @@ const ambassadorPerformance = [
   }
 ];
 
-// 2. Get top donors (excluding secret donations for public display)
+// Usage: db.ambassadors.aggregate(ambassadorPerformance);
+```
+
+### 🥇 Top Donors (Public Display)
+```javascript
 const topDonors = [
   {
     $match: { secretDonation: false }
@@ -280,7 +361,11 @@ const topDonors = [
   }
 ];
 
-// 3. Monthly donation summary
+// Usage: db.partners.aggregate(topDonors);
+```
+
+### 📈 Monthly Donation Summary
+```javascript
 const monthlyDonations = [
   {
     $group: {
@@ -303,6 +388,18 @@ const monthlyDonations = [
   }
 ];
 
-console.log("MongoDB Donation System Schema created successfully!");
-console.log("Collections: ambassadors, partners, donations");
-console.log("Sample aggregation pipelines included for reporting");
+// Usage: db.donations.aggregate(monthlyDonations);
+```
+
+---
+
+## ✅ Setup Complete
+
+**Your MongoDB donation system is ready!**
+
+**Collections Created:** `ambassadors`, `partners`, `donations`  
+**Indexes Applied:** Performance optimized for common queries  
+**Sample Data:** Ready for testing  
+**Analytics:** Aggregation pipelines included for reporting
+
+> 🎯 **Next Steps**: Connect your application using MongoDB driver and start tracking donations for the Yaakov Memorial Center!
