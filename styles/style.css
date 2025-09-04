@@ -1231,59 +1231,26 @@ div.header-wrapper span {
   display: inline-block;
 }
 
-/* Payment Toggle Styles */
-.payment-toggle {
-  display: flex;
-  gap: 8px;
-  margin: 16px 0;
-  justify-content: center;
-}
-
-.payment-option {
-  padding: 8px 16px;
-  border: 2px solid #935e20;
-  background-color: transparent;
-  color: #935e20;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: Heebo, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.payment-option.active {
-  background-color: #935e20;
-  color: white;
-}
-
-.payment-option:hover {
-  background-color: #a16825;
-  color: white;
-}
-
+/* Payment Method Styles */
 .payment-method {
-  display: none;
-}
-
-.payment-method.active {
-  display: block;
+  margin-top: 16px;
 }
 
 .grow-iframe-container {
-  margin-top: 16px;
   text-align: center;
 }
 
 .grow-iframe-container iframe {
   max-width: 100%;
   min-height: 400px;
+  border-radius: 8px;
 }
 
-.testing-note {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
+.loading-message {
+  padding: 20px;
+  font-size: 1.1rem;
+  color: #935e20;
   text-align: center;
+  font-family: Heebo, sans-serif;
+  font-weight: 500;
 }

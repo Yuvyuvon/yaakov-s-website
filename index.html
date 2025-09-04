@@ -608,18 +608,27 @@
           <div class="btn-wrapper">
             <span>הצטרפו אלינו בהגשמת החלום</span>
             
-            <!-- Payment Method Toggle -->
-            <div class="payment-toggle">
-              <button type="button" id="meshulam-btn" class="payment-option active" onclick="showPaymentMethod('meshulam')">
-                Meshulam
-              </button>
-              <button type="button" id="grow-btn" class="payment-option" onclick="showPaymentMethod('grow')">
-                Grow (בדיקה)
-              </button>
+            <!-- Grow Payment Method (Primary) -->
+            <div id="grow-payment" class="payment-method">
+              <div class="grow-iframe-container">
+                <iframe 
+                  id="grow-payment-iframe"
+                  src=""
+                  width="100%"
+                  height="600"
+                  frameborder="0"
+                  style="border: 1px solid #ddd; border-radius: 8px; display: none;"
+                  title="Grow Payment Form"
+                  allow="payment"
+                  onload="handleGrowIframeLoad()"
+                  onerror="showMeshulamFallback()">
+                </iframe>
+                <div id="grow-loading" class="loading-message">טוען אפשרויות תשלום...</div>
+              </div>
             </div>
 
-            <!-- Meshulam Payment Method -->
-            <div id="meshulam-payment" class="payment-method active">
+            <!-- Meshulam Payment Method (Fallback) -->
+            <div id="meshulam-payment" class="payment-method" style="display: none;">
               <a
                 class="btn"
                 href="https://meshulam.co.il/s/a7c70787-5416-623a-aa9d-36e517ef7a2d"
@@ -629,26 +638,6 @@
               >
                 תרומה עכשיו
               </a>
-            </div>
-
-            <!-- Grow Payment Method (Testing) -->
-            <div id="grow-payment" class="payment-method">
-              <div class="grow-iframe-container">
-                <iframe 
-                  id="grow-payment-iframe"
-                  src="about:blank"
-                  width="100%"
-                  height="600"
-                  frameborder="0"
-                  style="border: 1px solid #ddd; border-radius: 8px;"
-                  title="Grow Payment Form"
-                  allow="payment">
-                </iframe>
-                <p class="testing-note">
-                  זוהי גרסת בדיקה של Grow Payments.<br>
-                  תומך ב-Apple Pay ו-Google Pay.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -787,31 +776,40 @@
     </footer>
     
     <script>
-      function showPaymentMethod(method) {
-        // Hide all payment methods
-        document.getElementById('meshulam-payment').classList.remove('active');
-        document.getElementById('grow-payment').classList.remove('active');
+      // Auto-load payment methods with fallback
+      document.addEventListener('DOMContentLoaded', function() {
+        initializePayments();
+      });
+      
+      function initializePayments() {
+        const iframe = document.getElementById('grow-payment-iframe');
+        const growUrl = ''; // TODO: Replace with your Grow iframe URL when available
         
-        // Remove active class from all buttons
-        document.getElementById('meshulam-btn').classList.remove('active');
-        document.getElementById('grow-btn').classList.remove('active');
-        
-        // Show selected payment method and activate button
-        if (method === 'meshulam') {
-          document.getElementById('meshulam-payment').classList.add('active');
-          document.getElementById('meshulam-btn').classList.add('active');
-        } else if (method === 'grow') {
-          document.getElementById('grow-payment').classList.add('active');
-          document.getElementById('grow-btn').classList.add('active');
-          
-          // Load Grow iframe when selected (replace with actual Grow payment URL)
-          const iframe = document.getElementById('grow-payment-iframe');
-          if (iframe.src === 'about:blank') {
-            // TODO: Replace with actual Grow payment iframe URL when available
-            // iframe.src = 'https://your-grow-payment-url.com';
-            console.log('Grow payment method selected - iframe ready for Grow URL');
-          }
+        if (growUrl) {
+          // Try to load Grow payment
+          iframe.src = growUrl;
+          setTimeout(() => {
+            // Fallback if iframe doesn't load within 5 seconds
+            if (!iframe.contentDocument && iframe.style.display === 'none') {
+              showMeshulamFallback();
+            }
+          }, 5000);
+        } else {
+          // No Grow URL available, show Meshulam immediately
+          showMeshulamFallback();
         }
+      }
+      
+      function handleGrowIframeLoad() {
+        // Grow iframe loaded successfully
+        document.getElementById('grow-loading').style.display = 'none';
+        document.getElementById('grow-payment-iframe').style.display = 'block';
+      }
+      
+      function showMeshulamFallback() {
+        // Hide Grow payment and show Meshulam
+        document.getElementById('grow-payment').style.display = 'none';
+        document.getElementById('meshulam-payment').style.display = 'block';
       }
     </script>
   </body>
